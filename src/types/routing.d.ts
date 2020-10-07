@@ -1,9 +1,15 @@
 import { ComponentType } from "react";
 
-type Route = [string, ComponentType];
+interface RouteProps {
+	routeParams: any;
+}
+
+type Route = [string, ComponentType<RouteProps>];
 
 type Routes = Array<Route>;
 
 export const Routes;
 
 export const Param;
+
+export const RouteProps;

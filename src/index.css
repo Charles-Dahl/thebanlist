@@ -12,9 +12,15 @@ code {
 		monospace;
 }
 
+body,
+#root {
+	width: 100%;
+}
+
 :not(head) {
 	box-sizing: border-box;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 }

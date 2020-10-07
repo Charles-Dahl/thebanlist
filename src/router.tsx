@@ -1,4 +1,6 @@
 import React, { ComponentType } from "react";
+
+import { RouteProps } from "./types/routing";
 import routes from "./config/routes";
 
 export default () => {
@@ -10,7 +12,7 @@ export default () => {
 
 	const route = routes.reduce<{
 		params: any;
-		Component: ComponentType;
+		Component: ComponentType<RouteProps>;
 	} | null>((result, [key, Component]) => {
 		const routeRegex = key.match(/(([^:]+)|(:[^:\/]+)\s*)/g);
 		const newRegex = `^(${routeRegex
@@ -36,5 +38,5 @@ export default () => {
 		throw new Error("Not Found");
 	}
 
-	return <Component></Component>;
+	return <Component routeParams={route?.params}></Component>;
 };
