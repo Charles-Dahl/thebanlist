@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { URLSearchParams } from "url";
 
 import auth from "../../library/firebase/auth";
 
@@ -26,7 +25,8 @@ export default () => {
 								return user?.updateProfile({ displayName });
 							}
 						}
-					});
+					})
+					.then(() => (window.location.href = "/"));
 			}
 		}
 	}, []);

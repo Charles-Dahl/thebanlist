@@ -6,13 +6,12 @@ import Field from "../../components/field";
 import Button from "../../components/button";
 
 export default () => {
-	const [displayName, setDisplayName] = useState("");
 	const [email, setEmail] = useState("");
 
 	const onSubmit = () => {
 		auth()
 			.sendSignInLinkToEmail(email, {
-				url: `http://${window.location.host}/complete-sign-up?displayName=${displayName}`,
+				url: `http://${window.location.host}/complete-sign-up`,
 				handleCodeInApp: true,
 			})
 			.then(() => {
@@ -23,12 +22,11 @@ export default () => {
 
 	return (
 		<Form onSubmit={onSubmit}>
-			<Field
-				name="displayName"
-				label="Display Name"
-				value={displayName}
-				onChange={setDisplayName}
-			/>
+			<em>
+				Rule Zero uses password free authentication. When you sign in
+				you will receive an email link. Follow the link in the email to
+				sign in.
+			</em>
 			<Field
 				type="email"
 				name="email"
@@ -36,7 +34,7 @@ export default () => {
 				value={email}
 				onChange={setEmail}
 			/>
-			<Button>Create Account</Button>
+			<Button>Send me a sign in link</Button>
 		</Form>
 	);
 };

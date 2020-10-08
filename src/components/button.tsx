@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+import { BackgroundColor } from "../styles/common";
+
+type ButtonProps = {
+	tone?: keyof typeof BackgroundColor;
+};
+
 export default styled.button`
 	padding: 20px;
 	cursor: pointer;
@@ -8,6 +14,7 @@ export default styled.button`
 	transition: background 0.2s ease-out;
 
 	&:hover {
-		background: grey;
+		background: ${({ tone = "Primary" }: ButtonProps) =>
+			BackgroundColor[tone]};
 	}
 `;

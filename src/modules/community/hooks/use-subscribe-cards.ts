@@ -18,6 +18,7 @@ export default (community_id: string): [Array<Card>, boolean] => {
 						name: result.name,
 						id: result.id,
 						image_uris: result.image_uris,
+						users: result.users ? result.users : [],
 					};
 				});
 				setCards(data);

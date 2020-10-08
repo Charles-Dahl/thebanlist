@@ -1,21 +1,15 @@
 import React, { FormEvent } from "react";
 
 export type InputProps = {
-	name: string;
-	value: string;
-	onChange: (value: string) => void;
+	name?: string;
+	value?: string;
+	onChange?: (value: string) => void;
+	type?: string;
 };
 
-export default ({ value, onChange = () => {} }: InputProps) => {
+export default ({ onChange = () => {}, ...rest }: InputProps) => {
 	const handleChange = (event: FormEvent<HTMLInputElement>) => {
 		onChange(event.currentTarget.value);
 	};
-	return (
-		<input
-			value={value}
-			name="search-terms"
-			type="text"
-			onChange={handleChange}
-		/>
-	);
+	return <input onChange={handleChange} {...rest} />;
 };
