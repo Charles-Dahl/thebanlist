@@ -12,6 +12,8 @@ type CardProps = {
 
 const Container = styled.div`
 	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
 `;
 
 interface BannedIndicatorStyleProps {

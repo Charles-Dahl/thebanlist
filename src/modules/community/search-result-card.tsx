@@ -11,6 +11,8 @@ type SearchResultCardProps = {
 
 const Container = styled.div`
 	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
 `;
 
 const Controls = styled.div`
@@ -22,9 +24,9 @@ const Controls = styled.div`
 `;
 
 export default ({ card }: SearchResultCardProps) => {
-    const saveCard = useSaveCard();
-    const addCard = () => saveCard(card);
-    
+	const saveCard = useSaveCard();
+	const addCard = () => saveCard(card);
+
 	return (
 		<Container>
 			<img
