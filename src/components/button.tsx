@@ -12,6 +12,7 @@ export default styled.button`
 	border: 0;
 	background: transparent;
 	transition: background 0.2s ease-out;
+	flex: 1;
 
 	&:hover {
 		background: ${({ tone = "Primary" }: ButtonProps) =>

@@ -5,13 +5,21 @@ import { search } from "../../config/scryfall";
 import { Card } from "../../types/cards";
 import SearchResultCard from "./search-result-card";
 
+const createCard = ({
+	name,
+	id,
+	image_uris,
+	ban = [],
+	dont_ban = [],
+}: any): Card => ({ name, id, image_uris, ban, dont_ban });
+
 export default () => {
 	const [searchTerms, setSearchTerms] = useState("");
 	const [cardResults, setCardResults] = useState<Array<Card>>([]);
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		search(searchTerms).then((results) => setCardResults(results.data));
+		search(searchTerms).then((results) => setCardResults(results.data.map(createCard)));
 	};
 
 	const handleChangeSearchTerms = (event: FormEvent<HTMLInputElement>) => {

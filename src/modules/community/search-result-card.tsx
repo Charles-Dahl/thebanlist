@@ -1,25 +1,12 @@
-import { firestore } from "firebase";
 import React from "react";
 import styled from "styled-components";
 
 import Button from "../../components/button";
 import { Card } from "../../types/cards";
-import { useCommunity } from "./view";
+import useSaveCard from "./hooks/use-save-card";
 
 type SearchResultCardProps = {
 	card: Card;
-};
-
-const useSaveCard = (card: Card) => {
-	const community = useCommunity();
-	return () => {
-		if (community) {
-			firestore()
-				.collection(`community/${community.community_id}/card`)
-				.doc(card.id)
-				.set(card);
-		}
-	};
 };
 
 const Container = styled.div`
@@ -35,7 +22,9 @@ const Controls = styled.div`
 `;
 
 export default ({ card }: SearchResultCardProps) => {
-	const save = useSaveCard(card);
+    const saveCard = useSaveCard();
+    const addCard = () => saveCard(card);
+    
 	return (
 		<Container>
 			<img
@@ -45,7 +34,7 @@ export default ({ card }: SearchResultCardProps) => {
 				height={440}
 			></img>
 			<Controls>
-				<Button onClick={save}>+</Button>
+				<Button onClick={addCard}>+</Button>
 			</Controls>
 		</Container>
 	);

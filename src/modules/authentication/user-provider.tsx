@@ -20,9 +20,7 @@ export default ({ children }: UserProviderProps) => {
 
 	useEffect(() => {
 		return auth().onAuthStateChanged((user) => {
-			if (user) {
-				setUser(user);
-			}
+			setUser(user || null);
 		});
 	}, []);
 
