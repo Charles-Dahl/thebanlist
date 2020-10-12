@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Card } from "../../types/cards";
+import { Card } from "../../types/card";
 import { useUser } from "../authentication/user-provider";
 import UserControls from "./card-user-controls";
 import { BackgroundColor, FontSize } from "../../styles/common";

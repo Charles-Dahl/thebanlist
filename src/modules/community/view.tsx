@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 
-import CreateCommunity from "./create";
+import CreateCommunityForm from "./create-community-form";
 import useFindCommunity from "./hooks/use-find-community";
 import AddCardForm from "./add-card-form";
 import { CommunityType } from "./types";
@@ -18,7 +18,7 @@ export const useCommunity = () => useContext(CommunityContext);
 
 export default ({ routeParams: { community_id } }: Props) => {
 	if (community_id === "new") {
-		return <CreateCommunity></CreateCommunity>;
+		return <CreateCommunityForm></CreateCommunityForm>;
 	}
 
 	const community = useFindCommunity(community_id);

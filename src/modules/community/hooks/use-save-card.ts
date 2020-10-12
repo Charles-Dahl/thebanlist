@@ -1,6 +1,6 @@
 import firestore from "../../../library/firebase/firestore";
 import { useCommunity } from "../view";
-import { Card } from "../../../types/cards";
+import { Card } from "../../../types/card";
 
 export default () => {
 	const community = useCommunity();

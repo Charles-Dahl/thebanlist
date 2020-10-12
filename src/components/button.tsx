@@ -15,7 +15,7 @@ export default styled.button`
 	flex: 1;
 
 	&:hover {
-		background: ${({ tone = "Primary" }: ButtonProps) =>
+		background: ${({ tone = "Success" }: ButtonProps) =>
 			BackgroundColor[tone]};
 	}
 `;

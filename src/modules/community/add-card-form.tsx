@@ -1,8 +1,10 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 
 import Button from "../../components/button";
+import Form from "../../components/form";
+import Field from "../../components/field";
 import { search } from "../../config/scryfall";
-import { Card } from "../../types/cards";
+import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
 
 const createCard = ({
@@ -17,28 +19,23 @@ export default () => {
 	const [searchTerms, setSearchTerms] = useState("");
 	const [cardResults, setCardResults] = useState<Array<Card>>([]);
 
-	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		search(searchTerms).then((results) => setCardResults(results.data.map(createCard)));
+	const handleSubmit = () => {
+		search(searchTerms).then((results) =>
+			setCardResults(results.data.map(createCard))
+		);
 	};
 
-	const handleChangeSearchTerms = (event: FormEvent<HTMLInputElement>) => {
-		setSearchTerms(event.currentTarget.value);
-	};
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="search-terms">
-					Search
-					<input
-						value={searchTerms}
-						name="search-terms"
-						type="text"
-						onChange={handleChangeSearchTerms}
-					/>
-				</label>
+			<Form onSubmit={handleSubmit}>
+				<Field
+					name="search-terms"
+					label="Search"
+					value={searchTerms}
+					onChange={setSearchTerms}
+				/>
 				<Button type="submit">Search</Button>
-			</form>
+			</Form>
 			<div>
 				{cardResults.map((card) => (
 					<SearchResultCard key={card.id} card={card} />

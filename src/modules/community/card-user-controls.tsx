@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { BackgroundColor } from "../../styles/common";
 import Button from "../../components/button";
-import { Card } from "../../types/cards";
+import { Card } from "../../types/card";
 import useSaveCard from "./hooks/use-save-card";
 import Icon from "../../components/icon";
 import { User } from "firebase";

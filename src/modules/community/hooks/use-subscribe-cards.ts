@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import firestore from "../../../library/firebase/firestore";
-import { Card } from "../../../types/cards";
+import { Card } from "../../../types/card";
 
 export default (community_id: string): [Array<Card>, boolean] => {
 	const [loading, setLoading] = useState(true);

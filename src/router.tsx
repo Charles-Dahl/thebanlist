@@ -2,12 +2,13 @@ import React, { ComponentType } from "react";
 
 import { RouteProps } from "./types/routing";
 import routes from "./config/routes";
+import { NotFoundError } from "./library/errors/NotFoundError";
 
 export default () => {
 	const { pathname } = window.location;
 
 	if (!pathname) {
-		throw new Error("Not Found");
+		throw new NotFoundError();
 	}
 
 	const route = routes.reduce<{
@@ -35,7 +36,7 @@ export default () => {
 
 	const Component = route?.Component;
 	if (!Component) {
-		throw new Error("Not Found");
+		throw new NotFoundError();
 	}
 
 	return <Component routeParams={route?.params}></Component>;

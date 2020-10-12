@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Button from "../../components/button";
-import { Card } from "../../types/cards";
+import { Card } from "../../types/card";
 import useSaveCard from "./hooks/use-save-card";
 
 type SearchResultCardProps = {
