@@ -4,4 +4,4 @@ type Community = {
 	admin: Array<string>;
 };
 
-export const Card;
+export const Community;

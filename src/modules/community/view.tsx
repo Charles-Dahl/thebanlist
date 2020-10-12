@@ -3,7 +3,7 @@ import React, { createContext, useContext } from "react";
 import CreateCommunityForm from "./create-community-form";
 import useFindCommunity from "./hooks/use-find-community";
 import AddCardForm from "./add-card-form";
-import { CommunityType } from "./types";
+import { Community } from "../../types/community";
 import CardList from "./card-list";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 	};
 };
 
-const CommunityContext = createContext<CommunityType | null>(null);
+const CommunityContext = createContext<Community | null>(null);
 
 export const useCommunity = () => useContext(CommunityContext);
 

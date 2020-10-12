@@ -9,7 +9,7 @@ export default () => {
 		console.log("save card", card);
 		if (community) {
 			firestore()
-				.collection(`community/${community.community_id}/card`)
+				.collection(`community/${community.id}/card`)
 				.doc(card.id)
 				.set(card);
 		}

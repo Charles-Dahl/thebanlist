@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 import firestore from "../../../library/firebase/firestore";
-import { CommunityType } from "../types";
+import { Community } from "../../../types/community";
 
 export default (community_id: string) => {
-	const [community, setCommunity] = useState<CommunityType | null>(null);
+	const [community, setCommunity] = useState<Community | null>(null);
 
 	useEffect(() => {
 		firestore()
@@ -14,7 +14,11 @@ export default (community_id: string) => {
 			.then((snapshot) => {
 				const data = snapshot.data();
 				if (data) {
-					setCommunity({ name: data.name, community_id });
+					setCommunity({
+						name: data.name,
+						id: data.id,
+						admin: data.admin,
+					});
 				}
 			});
 	}, [community_id]);

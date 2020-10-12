@@ -1,7 +1,7 @@
 export enum BackgroundColor {
 	Nav = "#282828",
 	Error = "red",
-	Success = "green",
+	Success = "limegreen",
 	None = "transparent",
 	Primary = "#eeeeee",
 	Overlay = "#28282877",
