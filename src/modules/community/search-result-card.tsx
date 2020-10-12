@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import Button from "../../components/button";
+import Icon from "../../components/icon";
 import { Card } from "../../types/card";
 import useSaveCard from "./hooks/use-save-card";
+import { BackgroundColor } from "../../styles/common";
 
 type SearchResultCardProps = {
 	card: Card;
@@ -23,6 +25,17 @@ const Controls = styled.div`
 	bottom: 0;
 `;
 
+const AddButton = styled(Button)`
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: row;
+	background: ${BackgroundColor.Overlay};
+	width: 100%;
+	justify-content: center;
+`;
+
 export default ({ card }: SearchResultCardProps) => {
 	const saveCard = useSaveCard();
 	const addCard = () => saveCard(card);
@@ -32,11 +45,13 @@ export default ({ card }: SearchResultCardProps) => {
 			<img
 				src={card.image_uris.normal}
 				alt={card.name}
-				width={315}
-				height={440}
+				width={252}
+				height={352}
 			></img>
 			<Controls>
-				<Button onClick={addCard}>+</Button>
+				<AddButton onClick={addCard}>
+					<Icon name="add" tone="Overlay" />
+				</AddButton>
 			</Controls>
 		</Container>
 	);
