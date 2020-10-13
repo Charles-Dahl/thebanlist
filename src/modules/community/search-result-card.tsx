@@ -47,7 +47,7 @@ export default ({ card }: SearchResultCardProps) => {
 				alt={card.name}
 				width={252}
 				height={352}
-			></img>
+			/>
 			<Controls>
 				<AddButton onClick={addCard}>
 					<Icon name="add" tone="Overlay" />

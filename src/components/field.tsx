@@ -1,19 +1,37 @@
 import React from "react";
+import styled from "styled-components";
 
 import Input, { InputProps } from "./input";
+import Text from "./text";
 import Error from "./error";
+import Stack from "./stack";
 
 interface FieldProps extends InputProps {
 	label: string;
-	error?: string;
+	errors?: Array<string>;
+	touched?: boolean;
 }
 
-export default ({ name, label, error, ...rest }: FieldProps) => {
+const StyledLabel = styled.label`
+	align-items: flex-start;
+`;
+
+export default ({
+	name,
+	label,
+	errors = [],
+	touched = false,
+	...rest
+}: FieldProps) => {
 	return (
-		<label htmlFor={name}>
-			{label}
-			<Input name={name} {...rest} />
-			{error && <Error>{error}</Error>}
-		</label>
+		<StyledLabel htmlFor={name}>
+			<Stack space="Small">
+				<Text size="Small">{label}</Text>
+				<Input name={name} {...rest} />
+				{touched &&
+					errors.length > 0 &&
+					errors.map((error) => <Error>{error}</Error>)}
+			</Stack>
+		</StyledLabel>
 	);
 };

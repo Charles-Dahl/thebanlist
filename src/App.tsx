@@ -29,7 +29,7 @@ body,
 	height: 100%;
 }
 
-body * {
+body *:not(script) {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;

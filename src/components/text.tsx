@@ -8,6 +8,6 @@ interface TextProps {
 }
 
 export default styled.span`
-	color: ${({ tone = "Nav" }: TextProps) => ForegroundColor[tone]};
+	color: ${({ tone = "Primary" }: TextProps) => ForegroundColor[tone]};
 	font-size: ${({ size = "Medium" }: TextProps) => FontSize[size]};
 `;

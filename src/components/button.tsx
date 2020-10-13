@@ -18,4 +18,8 @@ export default styled.button`
 		background: ${({ tone = "Success" }: ButtonProps) =>
 			BackgroundColor[tone]};
 	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 `;

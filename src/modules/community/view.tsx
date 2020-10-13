@@ -26,7 +26,7 @@ export default ({ routeParams: { community_id } }: Props) => {
 	if (!community) {
 		return <p>Loading</p>;
 	}
-
+	// Add expandable banner for search
 	return (
 		<CommunityContext.Provider value={community}>
 			<div>

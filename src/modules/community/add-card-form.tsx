@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { searchTermSchema } from "../../types/formSchema";
+import useField from "../../hooks/use-field";
 import Button from "../../components/button";
 import Form from "../../components/form";
 import Field from "../../components/field";
@@ -16,13 +18,15 @@ const createCard = ({
 }: any): Card => ({ name, id, image_uris, ban, dont_ban });
 
 export default () => {
-	const [searchTerms, setSearchTerms] = useState("");
+	const searchTermsFieldProps = useField<string>("", searchTermSchema);
 	const [cardResults, setCardResults] = useState<Array<Card>>([]);
-
+	const valid = searchTermsFieldProps.errors.length < 1;
 	const handleSubmit = () => {
-		search(searchTerms).then((results) =>
-			setCardResults(results.data.map(createCard))
-		);
+		if (valid) {
+			search(searchTermsFieldProps.value).then((results) =>
+				setCardResults(results.data.map(createCard))
+			);
+		}
 	};
 
 	return (
@@ -30,11 +34,16 @@ export default () => {
 			<Form onSubmit={handleSubmit}>
 				<Field
 					name="search-terms"
-					label="Search"
-					value={searchTerms}
-					onChange={setSearchTerms}
+					label="Find cards to add to voting"
+					{...searchTermsFieldProps}
 				/>
-				<Button type="submit">Search</Button>
+				<Button
+					title={searchTermsFieldProps.errors.find(() => true)}
+					disabled={!valid}
+					type="submit"
+				>
+					Search
+				</Button>
 			</Form>
 			<div>
 				{cardResults.map((card) => (

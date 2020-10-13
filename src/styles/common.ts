@@ -19,3 +19,11 @@ export enum FontSize {
 	Large = "36px",
 	XLarge = "48px",
 }
+
+export enum Spacing {
+	None = "0",
+	Small = "5px",
+	Medium = "10px",
+	Large = "20px",
+	XLarge = "50px",
+}

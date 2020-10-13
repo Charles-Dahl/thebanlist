@@ -69,25 +69,31 @@ export default ({ children }: PageProps) => {
 				<User>
 					{user ? (
 						<Button onClick={signOut} title="Sign Out">
-							{user.displayName}
+							<Text size="Small" tone="Nav">
+								{user.displayName}
+							</Text>
 						</Button>
 					) : (
-						<Link href="/sign-in">Sign In or Register</Link>
+						<Link href="/sign-in">
+							<Text size="Small" tone="Nav">
+								Sign In or Register
+							</Text>
+						</Link>
 					)}
 				</User>
 			</Header>
 			<Content>{children}</Content>
 			<Footer>
-				<Text>Currently under construction</Text>
-				<Text size="Small">
+				<Text tone="Nav">Currently under construction</Text>
+				<Text tone="Nav" size="Small">
 					All card images are copyright Wizards of the Coast, LLC, a
 					subsidiary of Hasbro, Inc.
 				</Text>
-				<Text size="Small">
+				<Text tone="Nav" size="Small">
 					Rule Zero is not produced by, endorsed by, supported by, or
 					affiliated with Wizards of the Coast.
 				</Text>
-				<Text size="Small">
+				<Text tone="Nav" size="Small">
 					All other content copyright Charles Dahl
 				</Text>
 			</Footer>
