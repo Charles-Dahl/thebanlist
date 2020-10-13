@@ -21,15 +21,13 @@ const Controls = styled.div`
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 70%;
 	bottom: 0;
+	border: black solid 1px;
+	border-radius: 0 0 10px 10px;
+	overflow: hidden;
 `;
 
 const AddButton = styled(Button)`
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	flex-direction: row;
 	background: ${BackgroundColor.Overlay};
 	width: 100%;

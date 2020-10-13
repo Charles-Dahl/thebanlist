@@ -20,6 +20,9 @@ const Controls = styled.div`
 	bottom: 0;
 	flex-direction: row;
 	background: ${BackgroundColor.Overlay};
+	border: black solid 1px;
+	border-radius: 0 0 10px 10px;
+	overflow: hidden;
 `;
 
 export default ({ user, card }: UserControlProps) => {
