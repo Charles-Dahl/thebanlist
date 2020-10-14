@@ -9,8 +9,10 @@ type Props = {
 };
 
 const Container = styled.div`
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 `;
 
 export default ({ community_id }: Props) => {

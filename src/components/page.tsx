@@ -42,9 +42,15 @@ const Content = styled.main`
 `;
 
 const Title = styled.h1`
-	grid-area: title;
 	color: ${ForegroundColor.Nav};
 `;
+
+const HeaderContainer = styled.div`
+	grid-area: title;
+	flex-direction: row;
+`;
+
+const Navigation = styled.nav``;
 
 const User = styled.div`
 	grid-area: user;
@@ -65,7 +71,14 @@ export default ({ children }: PageProps) => {
 	return (
 		<Container>
 			<Header>
-				<Title>Rule Zero</Title>
+				<HeaderContainer>
+					<Title>Rule Zero</Title>
+					<Navigation>
+						<Link href="/">
+							<Text tone="Nav">Communities</Text>
+						</Link>
+					</Navigation>
+				</HeaderContainer>
 				<User>
 					{user ? (
 						<Button onClick={signOut} title="Sign Out">

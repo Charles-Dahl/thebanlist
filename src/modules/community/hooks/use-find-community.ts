@@ -18,6 +18,7 @@ export default (community_id: string) => {
 						name: data.name,
 						id: data.id,
 						admin: data.admin,
+						isPublic: data.isPublic,
 					});
 				}
 			});

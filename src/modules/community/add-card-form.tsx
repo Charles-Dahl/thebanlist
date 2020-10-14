@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { searchTermSchema } from "../../types/formSchema";
 import useField from "../../hooks/use-field";
 import Button from "../../components/button";
+import Text from "../../components/text";
 import Form from "../../components/form";
 import Field from "../../components/field";
 import { search } from "../../config/scryfall";
@@ -42,7 +43,7 @@ export default () => {
 					disabled={!valid}
 					type="submit"
 				>
-					Search
+					<Text>Search</Text>
 				</Button>
 			</Form>
 			<div>

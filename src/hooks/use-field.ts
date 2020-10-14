@@ -6,7 +6,6 @@ export default <T>(defaultValue: T, schema: yup.Schema<T>) => {
 	const [errors, setErrors] = useState<Array<string>>([]);
 	const [touched, setTouched] = useState(false);
 
-	console.log(value, errors, touched);
 	const onBlur = () => setTouched(true);
 
 	useEffect(() => {

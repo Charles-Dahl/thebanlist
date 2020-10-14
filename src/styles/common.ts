@@ -4,6 +4,7 @@ export enum BackgroundColor {
 	Success = "limegreen",
 	None = "transparent",
 	Primary = "#eeeeee",
+	Secondary = "white",
 	Overlay = "#28282877",
 }
 
