@@ -3,6 +3,7 @@ import React from "react";
 import useSubscribeCards from "./hooks/use-subscribe-cards";
 import Card from "./card";
 import styled from "styled-components";
+import Text from "../../components/text";
 
 type Props = {
 	community_id: string;
@@ -20,7 +21,7 @@ export default ({ community_id }: Props) => {
 
 	return (
 		<Container>
-			{loadingCards && <p>Loading Cards</p>}
+			{loadingCards && <Text>Loading Cards</Text>}
 			{cards.map((card) => (
 				<Card key={card.id} card={card} />
 			))}
