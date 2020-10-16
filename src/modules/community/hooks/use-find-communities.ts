@@ -44,8 +44,15 @@ export default ({
 		query.get().then(({ docs }) => {
 			const communitiesData = docs.map(
 				(doc): Community => {
-					const { name, id, admin, isPublic } = doc.data();
-					return { name, id, admin, isPublic };
+					const {
+						name,
+						id,
+						admin,
+						isPublic,
+						voter,
+						add_cards,
+					} = doc.data();
+					return { name, id, admin, isPublic, voter, add_cards };
 				}
 			);
 			saveLastDocument(docs);

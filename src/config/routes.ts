@@ -12,7 +12,6 @@ const routes: Routes = [
 	["/register", Register],
 	["/complete-sign-up", CompleteSignUp],
 	["/community/:community_id", Community],
-	["/community/:community_id/card/:card_id", Community],
 ];
 
 export default routes;

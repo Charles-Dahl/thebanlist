@@ -7,8 +7,11 @@ import { Community } from "../../types/community";
 import CardList from "./card-list";
 import Stack from "../../components/stack";
 import Text from "../../components/text";
+import NotFound from "../../components/not-found";
 import { BackgroundColor, Spacing } from "../../styles/common";
 import styled from "styled-components";
+import { useUser } from "../authentication/user-provider";
+import InviteGenerator from "./invite-generator";
 
 type Props = {
 	routeParams: {
@@ -35,10 +38,14 @@ export default ({ routeParams: { community_id } }: Props) => {
 		return <CreateCommunityForm></CreateCommunityForm>;
 	}
 
-	const community = useFindCommunity(community_id);
+	const [community, loading] = useFindCommunity(community_id);
+	const user = useUser();
 
-	if (!community) {
+	if (loading) {
 		return <Text>Loading</Text>;
+	}
+	if (!community) {
+		return <NotFound />;
 	}
 	// Add expandable banner for search
 	return (
@@ -49,6 +56,9 @@ export default ({ routeParams: { community_id } }: Props) => {
 					<Text size="Small" tone="Overlay">{`${
 						community.isPublic ? "Public" : "Private"
 					} Community`}</Text>
+					{user && community.admin.includes(user.uid) && (
+						<InviteGenerator community={community} />
+					)}
 				</NameContainer>
 				<div>
 					<CardList community_id={community_id} />

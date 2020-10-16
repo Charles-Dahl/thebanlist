@@ -23,9 +23,14 @@ export default () => {
 		}
 		const name = nameFieldProps.value;
 		const id = name.replace(/  */g, "-").toLocaleLowerCase();
-		createCommunity({ name, admin: [user.uid], id, isPublic }).then(
-			() => (window.location.href = `/community/${id}`)
-		);
+		createCommunity({
+			name,
+			admin: [user.uid],
+			id,
+			isPublic,
+			voter: [user.uid],
+			add_cards: [user.uid],
+		}).then(() => (window.location.href = `/community/${id}`));
 	};
 
 	return (

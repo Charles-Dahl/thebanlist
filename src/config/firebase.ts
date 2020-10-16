@@ -8,3 +8,5 @@ export default {
 	appId: "1:415695813820:web:b628fd5d91dba54127e4b9",
 	measurementId: "G-99PVMGFYEJ",
 };
+
+export const dynamicLinkDomain = "thebanlist.page.link";
