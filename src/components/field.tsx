@@ -16,13 +16,13 @@ const StyledLabel = styled.label`
 	align-items: flex-start;
 `;
 
-export default ({
+const Field: React.FC<FieldProps> = ({
 	name,
 	label,
 	errors = [],
 	touched = false,
 	...rest
-}: FieldProps) => {
+}) => {
 	return (
 		<StyledLabel htmlFor={name}>
 			<Stack space="Small">
@@ -35,3 +35,5 @@ export default ({
 		</StyledLabel>
 	);
 };
+
+export default Field;

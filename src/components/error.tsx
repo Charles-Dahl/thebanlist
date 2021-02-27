@@ -1,9 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-export type ErrorProps = {
-	children: ReactNode;
-};
-
-export default ({ children }: ErrorProps) => {
+const Error: React.FC = ({ children }) => {
 	return <em>{children}</em>;
 };
+
+export default Error;

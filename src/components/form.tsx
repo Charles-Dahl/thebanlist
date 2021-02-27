@@ -1,8 +1,10 @@
-import React, { FormEvent, ReactNode } from "react";
+import React, { FormEvent } from "react";
 
-type FormProps = { children: ReactNode; onSubmit: () => void };
+interface FormProps {
+	onSubmit: () => void;
+}
 
-export default ({ children, onSubmit = () => {} }: FormProps) => {
+const Form: React.FC<FormProps> = ({ children, onSubmit = () => {} }) => {
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		onSubmit();
@@ -10,3 +12,5 @@ export default ({ children, onSubmit = () => {} }: FormProps) => {
 
 	return <form onSubmit={handleSubmit}>{children}</form>;
 };
+
+export default Form;

@@ -5,7 +5,7 @@ interface StackProps {
 	space?: keyof typeof Spacing;
 }
 
-export default styled.div`
+const Stack = styled.div`
 	flex-direction: column;
 	${({ space = "None" }: StackProps) => `margin-top: -${Spacing[space]};
 
@@ -13,3 +13,5 @@ export default styled.div`
 		margin: ${Spacing[space]};
 	}`}
 `;
+
+export default Stack;

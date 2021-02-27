@@ -7,8 +7,8 @@ class NotFoundErrorBoundary extends Component {
 	}
 
 	state = { hasError: false };
-
 	render() {
+        console.log(this.state.hasError);
 		if (this.state.hasError) {
 			return <p>Not Found</p>;
 		}

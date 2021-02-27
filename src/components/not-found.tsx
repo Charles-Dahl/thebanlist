@@ -2,6 +2,8 @@ import React from "react";
 
 import Text from "./text";
 
-export default () => {
+const NotFound: React.FC = () => {
 	return <Text>Not Found</Text>;
 };
+
+export default NotFound;

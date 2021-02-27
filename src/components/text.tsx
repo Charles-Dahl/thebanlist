@@ -7,7 +7,11 @@ interface TextProps {
 	tone?: keyof typeof ForegroundColor;
 }
 
-export default styled.span`
-	color: ${({ tone = "Primary" }: TextProps) => ForegroundColor[tone]};
-	font-size: ${({ size = "Medium" }: TextProps) => FontSize[size]};
+const Text = styled.span`
+	${({ tone = "Primary", size = "Medium" }: TextProps) => `
+	color: ${ForegroundColor[tone]};
+	font-size: ${FontSize[size]};
+    `}
 `;
+
+export default Text;

@@ -1,13 +1,13 @@
 import React, { FormEvent } from "react";
 import styled from "styled-components";
 
-export type InputProps = {
+export interface InputProps {
 	name?: string;
 	value?: string;
 	onChange?: (value: string) => void;
 	type?: string;
 	onBlur?: () => void;
-};
+}
 
 const StyledInput = styled.input`
 	border-width: 0.5px;
@@ -15,9 +15,11 @@ const StyledInput = styled.input`
 	padding: 10px;
 `;
 
-export default ({ onChange = () => {}, ...rest }: InputProps) => {
+const Input: React.FC<InputProps> = ({ onChange = () => {}, ...rest }) => {
 	const handleChange = (event: FormEvent<HTMLInputElement>) => {
 		onChange(event.currentTarget.value);
 	};
 	return <StyledInput onChange={handleChange} {...rest} />;
 };
+
+export default Input;

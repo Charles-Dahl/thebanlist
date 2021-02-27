@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { BackgroundColor, ForegroundColor } from "../styles/common";
@@ -56,11 +56,7 @@ const User = styled.div`
 	grid-area: user;
 `;
 
-interface PageProps {
-	children?: ReactNode;
-}
-
-export default ({ children }: PageProps) => {
+const Page: React.FC = ({ children }) => {
 	const user = useUser();
 
 	const signOut = () =>
@@ -113,3 +109,5 @@ export default ({ children }: PageProps) => {
 		</Container>
 	);
 };
+
+export default Page;

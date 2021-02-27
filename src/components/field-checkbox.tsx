@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Checkbox, { CheckboxProps } from "./checkbox";
 import Text from "./text";
 import Error from "./error";
-import Stack from "./stack";
 
 interface FieldProps extends CheckboxProps {
 	label: string;
@@ -18,13 +17,13 @@ const StyledLabel = styled.label`
 	grid-gap: 10px;
 `;
 
-export default ({
+const FieldCheckbox: React.FC<FieldProps> = ({
 	name,
 	label,
 	errors = [],
 	touched = false,
 	...rest
-}: FieldProps) => {
+}) => {
 	return (
 		<StyledLabel htmlFor={name}>
 			<Checkbox name={name} {...rest} />
@@ -35,3 +34,5 @@ export default ({
 		</StyledLabel>
 	);
 };
+
+export default FieldCheckbox;

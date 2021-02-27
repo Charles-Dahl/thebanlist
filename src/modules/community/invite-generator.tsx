@@ -5,6 +5,7 @@ import Checkbox from "../../components/checkbox";
 import Button from "../../components/button";
 import Stack from "../../components/stack";
 import Text from "../../components/text";
+import InviteDisplay from "./invite-display";
 import generateInvite from "../../library/generate-invite";
 
 export type Community = {
@@ -37,6 +38,7 @@ export default ({ community }: InviteGeneratorProps) => {
 	const [voter, setVoter] = useState(true);
 	const [addCards, setAddCards] = useState(false);
 	const [invite, setInvite] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const generate = () => {
 		const permissions = [
@@ -45,9 +47,10 @@ export default ({ community }: InviteGeneratorProps) => {
 			...(addCards ? [Permission.AddCards] : []),
 		];
 		if (permissions.length > 0) {
-			generateInvite(permissions, community).then(({ shortLink }) =>
-				setInvite(shortLink)
-			);
+			setLoading(true);
+			generateInvite(permissions, community)
+				.then(({ shortLink }) => setInvite(shortLink))
+				.finally(() => setLoading(false));
 		}
 	};
 
@@ -68,7 +71,11 @@ export default ({ community }: InviteGeneratorProps) => {
 			<Button disabled={!admin && !voter && !addCards} onClick={generate}>
 				<Text>Generate Invite</Text>
 			</Button>
-			<Text>{invite}</Text>
+			{loading ? (
+				<Text>Generating...</Text>
+			) : (
+				<InviteDisplay invite={invite} />
+			)}
 		</Stack>
 	);
 };

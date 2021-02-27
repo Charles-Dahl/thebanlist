@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export type CheckboxProps = {
+export interface CheckboxProps {
 	name?: string;
 	value?: boolean;
 	onChange?: (value: boolean) => void;
 	onBlur?: () => void;
-};
+}
 
 const StyledInput = styled.input`
 	border-width: 0.5px;
@@ -15,7 +15,11 @@ const StyledInput = styled.input`
 	transform: scale(1.5);
 `;
 
-export default ({ onChange = () => {}, value, ...rest }: CheckboxProps) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+	onChange = () => {},
+	value,
+	...rest
+}) => {
 	const handleChange = () => {
 		onChange(!value);
 	};
@@ -28,3 +32,5 @@ export default ({ onChange = () => {}, value, ...rest }: CheckboxProps) => {
 		/>
 	);
 };
+
+export default Checkbox;

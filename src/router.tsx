@@ -10,7 +10,6 @@ export default () => {
 	if (!pathname) {
 		throw new NotFoundError();
 	}
-
 	const route = routes.reduce<{
 		params: any;
 		Component: ComponentType<RouteProps>;
@@ -39,5 +38,5 @@ export default () => {
 		throw new NotFoundError();
 	}
 
-	return <Component routeParams={route?.params}></Component>;
+	return <Component routeParams={route?.params || {}}></Component>;
 };

@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
-import { BackgroundColor } from "../styles/common";
+import { BackgroundColor, Spacing } from "../styles/common";
 
-type ButtonProps = {
+interface ButtonProps {
 	tone?: keyof typeof BackgroundColor;
-};
+}
 
-export default styled.button`
-	padding: 20px;
+const Button = styled.button`
+	padding: ${Spacing.Small};
 	cursor: pointer;
 	border: 0;
 	background: transparent;
 	transition: background 0.2s ease-out;
 	flex: 1;
+	border-radius: 3px;
 
 	&:hover {
 		background: ${({ tone = "Success" }: ButtonProps) =>
@@ -23,3 +24,5 @@ export default styled.button`
 		cursor: not-allowed;
 	}
 `;
+
+export default Button;
