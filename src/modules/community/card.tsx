@@ -22,7 +22,7 @@ interface BannedIndicatorStyleProps {
 
 const BannedIndicator = styled.strong`
 	justify-content: center;
-	background-color: ${BackgroundColor.Overlay};
+	background-color: var(--color-overlay);
 	color: ${({ tone = "Error" }: BannedIndicatorStyleProps) =>
 		BackgroundColor[tone]};
 	text-shadow: 3px 3px #282828;

@@ -28,9 +28,7 @@ const FieldCheckbox: React.FC<FieldProps> = ({
 		<StyledLabel htmlFor={name}>
 			<Checkbox name={name} {...rest} />
 			<Text>{label}</Text>
-			{touched &&
-				errors.length > 0 &&
-				errors.map((error) => <Error>{error}</Error>)}
+			{touched && <Error errors={errors} />}
 		</StyledLabel>
 	);
 };

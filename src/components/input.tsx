@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 export interface InputProps {
 	name?: string;
+	placeholder?: string;
+	title?: string;
 	value?: string;
 	onChange?: (value: string) => void;
 	type?: string;

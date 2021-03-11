@@ -29,9 +29,7 @@ const Field: React.FC<FieldProps> = ({
 			<Stack>
 				<Text>{label}</Text>
 				<Input name={name} {...rest} />
-				{touched &&
-					errors.length > 0 &&
-					errors.map((error) => <Error>{error}</Error>)}
+				{touched && <Error errors={errors} />}
 			</Stack>
 		</StyledLabel>
 	);

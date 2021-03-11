@@ -11,13 +11,14 @@ import { search } from "../../config/scryfall";
 import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
 import styled from "styled-components";
+import ExpandableSearch from "../../components/expandable-search";
 
 const Container = styled.div`
 	position: sticky;
 	bottom: 0;
 	width: 100%;
 	background: var(--color-light-2);
-	--direction: row;
+	--direction: column;
 	padding: var(--spacing-small);
 `;
 
@@ -45,18 +46,10 @@ const AddCardForm = () => {
 		<Container>
 			<Form onSubmit={handleSubmit}>
 				<Stack>
-					<Field
+					<ExpandableSearch
 						name="search-terms"
-						label="Add Cards"
 						{...searchTermsFieldProps}
 					/>
-					<Button
-						title={searchTermsFieldProps.errors.find(() => true)}
-						disabled={!valid}
-						type="submit"
-					>
-						<Text>Search</Text>
-					</Button>
 				</Stack>
 			</Form>
 			<div>
