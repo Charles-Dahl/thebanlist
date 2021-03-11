@@ -27,6 +27,15 @@ body,
 #root {
 	width: 100%;
 	height: 100%;
+
+    // default values
+    --spacing: var(--spacing-none);
+    --font-size: var(--font-size-medium);
+    --border-radius: 3px;
+    --border-radius-button: 3px;
+    --color: #000000;
+    --background-color-nav: var(--color-dark-1);
+    --direction: column;
 }
 
 body *:not(script) {
@@ -35,6 +44,31 @@ body *:not(script) {
 	flex-direction: column;
 	align-items: center;
     justify-content: space-between;
+}
+
+:root {
+    --background-color: #eeeeee;
+
+    --spacing-none: 0;
+	--spacing-xsmall: 3px;
+	--spacing-small: 6px;
+	--spacing-medium: 10px;
+	--spacing-large: 20px;
+	--spacing-xlarge: 50px;
+
+    --font-size-xsmall: 12px;
+    --font-size-small: 18px;
+	--font-size-medium: 24px;
+	--font-size-large: 36px;
+	--font-size-xlarge: 48px;
+
+    --color-light-1: #FFFFFF;
+    --color-light-2: #EBEBEB;
+    --color-light-3: #D6D6D6;
+
+    --color-dark-1: #282828;
+    --color-dark-2: #000000;
+    --color-dark-3: #474747;
 }
 `;
 

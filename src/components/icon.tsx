@@ -1,20 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import { ForegroundColor, FontSize } from "../styles/common";
-
-interface IconProps extends StyleProps {
+interface IconProps {
 	name: keyof typeof iconNames;
 }
 
-interface StyleProps {
-	tone?: keyof typeof ForegroundColor;
-	size?: keyof typeof FontSize;
-}
-
 const StyledIcon = styled.span`
-	color: ${({ tone = "Primary" }: StyleProps) => ForegroundColor[tone]};
-	font-size: ${({ size = "Medium" }: StyleProps) => FontSize[size]};
+	color: var(--color-icon);
+	font-size: var(--font-size-icon);
 `;
 
 const Icon: React.FC<IconProps> = ({ name, ...rest }) => {

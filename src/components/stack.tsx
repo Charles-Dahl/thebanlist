@@ -1,17 +1,14 @@
 import styled from "styled-components";
-import { Spacing } from "../styles/common";
 
-interface StackProps {
-	space?: keyof typeof Spacing;
-}
+// adds spacing between each child of Stack by adding margin before each child and offsetting the first child by the same amount;
 
 const Stack = styled.div`
-	flex-direction: column;
-	${({ space = "None" }: StackProps) => `margin-top: -${Spacing[space]};
+	flex-direction: var(--direction);
+	margin-top: calc(-1 * var(--spacing));
 
 	> * {
-		margin: ${Spacing[space]};
-	}`}
+		margin: var(--spacing);
+	}
 `;
 
 export default Stack;

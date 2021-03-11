@@ -23,8 +23,8 @@ export default (community_id: string): [Community | null, boolean] => {
 						voter: data.voter,
 						add_cards: data.add_cards,
 					});
-					setLoading(false);
 				}
+				setLoading(false);
 			});
 	}, [community_id]);
 

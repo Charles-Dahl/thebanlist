@@ -20,9 +20,11 @@ const Controls = styled.div`
 	bottom: 0;
 	flex-direction: row;
 	background: ${BackgroundColor.Overlay};
-	border: black solid 1px;
 	border-radius: 0 0 10px 10px;
 	overflow: hidden;
+	--color-icon: var(--color-light-1);
+	--font-size-icon: var(--font-size-medium);
+	--border-radius-button: 0;
 `;
 
 export default ({ user, card }: UserControlProps) => {
@@ -44,17 +46,11 @@ export default ({ user, card }: UserControlProps) => {
 
 	return (
 		<Controls>
-			<Button tone="Error" onClick={ban}>
-				<Icon
-					name={votedBan ? "thumb_down" : "thumb_down_off_alt"}
-					tone="Overlay"
-				/>
-			</Button>
 			<Button tone="Success" onClick={dontBan}>
-				<Icon
-					name={votedDontBan ? "thumb_up" : "thumb_up_off_alt"}
-					tone="Overlay"
-				/>
+				<Icon name={votedDontBan ? "thumb_up" : "thumb_up_off_alt"} />
+			</Button>
+			<Button tone="Error" onClick={ban}>
+				<Icon name={votedBan ? "thumb_down" : "thumb_down_off_alt"} />
 			</Button>
 		</Controls>
 	);

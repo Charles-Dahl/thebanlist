@@ -1,5 +1,5 @@
 import firestore from "../../../library/firebase/firestore";
-import { useCommunity } from "../view";
+import { useCommunity } from "../view-community";
 import { Card } from "../../../types/card";
 
 export default () => {

@@ -34,7 +34,7 @@ export default () => {
 	return (
 		<div>
 			<Form onSubmit={onSubmit}>
-				<Stack space="Small">
+				<Stack>
 					<em>
 						Rule Zero uses password free authentication. When you
 						sign in you will receive an email link. Follow the link

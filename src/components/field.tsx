@@ -14,6 +14,7 @@ interface FieldProps extends InputProps {
 
 const StyledLabel = styled.label`
 	align-items: flex-start;
+	--spacing: var(--spacing-small);
 `;
 
 const Field: React.FC<FieldProps> = ({
@@ -25,8 +26,8 @@ const Field: React.FC<FieldProps> = ({
 }) => {
 	return (
 		<StyledLabel htmlFor={name}>
-			<Stack space="Small">
-				<Text size="Small">{label}</Text>
+			<Stack>
+				<Text>{label}</Text>
 				<Input name={name} {...rest} />
 				{touched &&
 					errors.length > 0 &&

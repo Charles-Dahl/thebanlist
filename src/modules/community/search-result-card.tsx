@@ -5,7 +5,6 @@ import Button from "../../components/button";
 import Icon from "../../components/icon";
 import { Card } from "../../types/card";
 import useSaveCard from "./hooks/use-save-card";
-import { BackgroundColor } from "../../styles/common";
 
 type SearchResultCardProps = {
 	card: Card;
@@ -25,13 +24,9 @@ const Controls = styled.div`
 	border: black solid 1px;
 	border-radius: 0 0 10px 10px;
 	overflow: hidden;
-`;
-
-const AddButton = styled(Button)`
-	flex-direction: row;
-	background: ${BackgroundColor.Overlay};
-	width: 100%;
-	justify-content: center;
+	--color-icon: var(--color-light-1);
+	--font-size-icon: var(--font-size-medium);
+	--border-radius-button: 0;
 `;
 
 export default ({ card }: SearchResultCardProps) => {
@@ -47,9 +42,9 @@ export default ({ card }: SearchResultCardProps) => {
 				height={352}
 			/>
 			<Controls>
-				<AddButton onClick={addCard}>
-					<Icon name="add" tone="Overlay" />
-				</AddButton>
+				<Button onClick={addCard}>
+					<Icon name="add" />
+				</Button>
 			</Controls>
 		</Container>
 	);

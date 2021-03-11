@@ -9,7 +9,7 @@ import Text from "../../components/text";
 import Stack from "../../components/stack";
 import { displayNameSchema, emailSchema } from "../../types/formSchema";
 
-export default () => {
+const RegisterUser = () => {
 	const displayNameFieldProps = useField<string>("", displayNameSchema);
 	const emailFieldProps = useField<string>("", emailSchema);
 	const valid =
@@ -33,7 +33,7 @@ export default () => {
 
 	return (
 		<Form onSubmit={onSubmit}>
-			<Stack space="Medium">
+			<Stack>
 				<em>
 					Rule Zero uses password free authentication. When you sign
 					in you will receive an email link. Follow the link in the
@@ -57,3 +57,5 @@ export default () => {
 		</Form>
 	);
 };
+
+export default RegisterUser;

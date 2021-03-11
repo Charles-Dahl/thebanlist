@@ -7,6 +7,7 @@ import { useUser } from "../modules/authentication/user-provider";
 import Button from "./button";
 import Link from "./link";
 import Text from "./text";
+import Footer from "./footer";
 
 const Container = styled.div`
 	width: 100%;
@@ -29,16 +30,10 @@ const Header = styled.header`
 	grid-template-areas: ". title user";
 `;
 
-const Footer = styled.footer`
-	grid-area: footer;
-	background: ${BackgroundColor.Nav};
-	padding: 20px;
-`;
-
 const Content = styled.main`
 	grid-area: main;
-	padding: 20px;
 	height: 100%;
+	--spacing: var(--spacing-medium);
 `;
 
 const Title = styled.h1`
@@ -71,41 +66,24 @@ const Page: React.FC = ({ children }) => {
 					<Title>Rule Zero</Title>
 					<Navigation>
 						<Link href="/">
-							<Text tone="Nav">Communities</Text>
+							<Text>Communities</Text>
 						</Link>
 					</Navigation>
 				</HeaderContainer>
 				<User>
 					{user ? (
 						<Button onClick={signOut} title="Sign Out">
-							<Text size="Small" tone="Nav">
-								{user.displayName}
-							</Text>
+							<Text>{user.displayName}</Text>
 						</Button>
 					) : (
 						<Link href="/sign-in">
-							<Text size="Small" tone="Nav">
-								Sign In or Register
-							</Text>
+							<Text>Sign In or Register</Text>
 						</Link>
 					)}
 				</User>
 			</Header>
 			<Content>{children}</Content>
-			<Footer>
-				<Text tone="Nav">Currently under construction</Text>
-				<Text tone="Nav" size="Small">
-					All card images are copyright Wizards of the Coast, LLC, a
-					subsidiary of Hasbro, Inc.
-				</Text>
-				<Text tone="Nav" size="Small">
-					Rule Zero is not produced by, endorsed by, supported by, or
-					affiliated with Wizards of the Coast.
-				</Text>
-				<Text tone="Nav" size="Small">
-					All other content copyright Charles Dahl
-				</Text>
-			</Footer>
+			<Footer />
 		</Container>
 	);
 };

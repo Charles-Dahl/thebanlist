@@ -5,39 +5,41 @@ import useFindCommunities from "./hooks/use-find-communities";
 import Community from "./community";
 import { BackgroundColor } from "../../styles/common";
 import Button from "../../components/button";
+import Link from "../../components/link";
 import Text from "../../components/text";
+import Icon from "../../components/icon";
+import { useUser } from "../authentication/user-provider";
 
 const Container = styled.div`
 	background-color: ${BackgroundColor.Secondary};
-	border: black solid 0.5px;
-	border-radius: 10px;
+	border: var(--color-light-3) solid 0.5px;
+	border-radius: 6px;
 	overflow: hidden;
-`;
-
-const LoadMoreButton = styled(Button)`
+	--border-radius: 0;
 	width: 100%;
-	&:hover {
-		text-decoration: underline;
-	}
 `;
 
 export default () => {
 	const [communities, loading, loadMore] = useFindCommunities({
 		where: [["isPublic", "==", true]],
 	});
+	const user = useUser();
 
 	return (
-		<div>
-			<Text>Public Communities</Text>
-			<Container>
-				{loading && <Text>Loading Communities</Text>}
-				{communities.map((community) => (
-					<Community key={community.id} community={community} />
-				))}
-				<LoadMoreButton tone="None" onClick={loadMore}>
-					<Text size="Small">Load More</Text>
-				</LoadMoreButton>
-			</Container>
-		</div>
+		<Container>
+			{user ? (
+				<Link href="/community/new">
+					<Icon name="add" />
+					<Text>Create New Community</Text>
+				</Link>
+			) : null}
+			{loading && <Text>Loading Communities</Text>}
+			{communities.map((community) => (
+				<Community key={community.id} community={community} />
+			))}
+			<Button onClick={loadMore}>
+				<Text>Load More</Text>
+			</Button>
+		</Container>
 	);
 };

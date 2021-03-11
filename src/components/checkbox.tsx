@@ -15,11 +15,7 @@ const StyledInput = styled.input`
 	transform: scale(1.5);
 `;
 
-const Checkbox: React.FC<CheckboxProps> = ({
-	onChange = () => {},
-	value,
-	...rest
-}) => {
+const Checkbox = ({ onChange = () => {}, value, ...rest }: CheckboxProps) => {
 	const handleChange = () => {
 		onChange(!value);
 	};

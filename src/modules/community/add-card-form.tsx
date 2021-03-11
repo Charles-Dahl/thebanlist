@@ -5,10 +5,21 @@ import useField from "../../hooks/use-field";
 import Button from "../../components/button";
 import Text from "../../components/text";
 import Form from "../../components/form";
+import Stack from "../../components/stack";
 import Field from "../../components/field";
 import { search } from "../../config/scryfall";
 import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
+import styled from "styled-components";
+
+const Container = styled.div`
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	background: var(--color-light-2);
+	--direction: row;
+	padding: var(--spacing-small);
+`;
 
 const createCard = ({
 	name,
@@ -18,7 +29,7 @@ const createCard = ({
 	dont_ban = [],
 }: any): Card => ({ name, id, image_uris, ban, dont_ban });
 
-export default () => {
+const AddCardForm = () => {
 	const searchTermsFieldProps = useField<string>("", searchTermSchema);
 	const [cardResults, setCardResults] = useState<Array<Card>>([]);
 	const valid = searchTermsFieldProps.errors.length < 1;
@@ -31,26 +42,30 @@ export default () => {
 	};
 
 	return (
-		<div>
+		<Container>
 			<Form onSubmit={handleSubmit}>
-				<Field
-					name="search-terms"
-					label="Find cards to add to voting"
-					{...searchTermsFieldProps}
-				/>
-				<Button
-					title={searchTermsFieldProps.errors.find(() => true)}
-					disabled={!valid}
-					type="submit"
-				>
-					<Text>Search</Text>
-				</Button>
+				<Stack>
+					<Field
+						name="search-terms"
+						label="Add Cards"
+						{...searchTermsFieldProps}
+					/>
+					<Button
+						title={searchTermsFieldProps.errors.find(() => true)}
+						disabled={!valid}
+						type="submit"
+					>
+						<Text>Search</Text>
+					</Button>
+				</Stack>
 			</Form>
 			<div>
 				{cardResults.map((card) => (
 					<SearchResultCard key={card.id} card={card} />
 				))}
 			</div>
-		</div>
+		</Container>
 	);
 };
+
+export default AddCardForm;

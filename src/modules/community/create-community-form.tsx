@@ -10,7 +10,7 @@ import useCreateCommunity from "./hooks/use-create-community";
 import { useUser } from "../authentication/user-provider";
 import useField from "../../hooks/use-field";
 
-export default () => {
+const CreateCommunityForm = () => {
 	const user = useUser();
 	const createCommunity = useCreateCommunity();
 	const nameFieldProps = useField("", communityNameSchema);
@@ -35,7 +35,7 @@ export default () => {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			<Stack space="Small">
+			<Stack>
 				<Field
 					name="community-name"
 					label="Community Name"
@@ -58,3 +58,5 @@ export default () => {
 		</Form>
 	);
 };
+
+export default CreateCommunityForm;
