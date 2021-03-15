@@ -9,6 +9,7 @@ import Link from "../../components/link";
 import Text from "../../components/text";
 import Icon from "../../components/icon";
 import { useUser } from "../authentication/user-provider";
+import Preloader from "../../components/preloader";
 
 const Container = styled.div`
 	background-color: ${BackgroundColor.Secondary};
@@ -33,7 +34,7 @@ export default () => {
 					<Text>Create New Community</Text>
 				</Link>
 			) : null}
-			{loading && <Text>Loading Communities</Text>}
+			{loading && <Preloader />}
 			{communities.map((community) => (
 				<Community key={community.id} community={community} />
 			))}

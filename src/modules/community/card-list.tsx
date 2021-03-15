@@ -4,6 +4,7 @@ import useSubscribeCards from "./hooks/use-subscribe-cards";
 import Card from "./card";
 import styled from "styled-components";
 import Text from "../../components/text";
+import Preloader from "../../components/preloader";
 
 type Props = {
 	community_id: string;
@@ -22,9 +23,12 @@ const Container = styled.div`
 export default ({ community_id }: Props) => {
 	const [cards, loadingCards] = useSubscribeCards(community_id);
 
+	if (loadingCards) {
+		return <Preloader />;
+	}
+
 	return (
 		<Container>
-			{loadingCards && <Text>Loading Cards</Text>}
 			{cards.map((card) => (
 				<Card key={card.id} card={card} />
 			))}

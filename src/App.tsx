@@ -7,6 +7,7 @@ import Router from "./router";
 import Page from "./components/page";
 
 const GlobalStyles = createGlobalStyle`
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",

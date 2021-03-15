@@ -12,6 +12,7 @@ import InviteGenerator from "./invite-generator";
 import Banner from "../../components/banner";
 import Title from "../../components/title";
 import Subtitle from "../../components/subtitle";
+import Preloader from "../../components/preloader";
 
 interface ViewCommunityProps {
 	communityId: string;
@@ -27,9 +28,12 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 
 	if (loading) {
 		return (
-			<Banner>
-				<Text>Loading</Text>
-			</Banner>
+			<Stack>
+				<Banner>
+					<Text>Loading</Text>
+				</Banner>
+				<Preloader />
+			</Stack>
 		);
 	}
 	if (!community) {
@@ -48,6 +52,7 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 						<InviteGenerator community={community} />
 					)}
 				</Banner>
+				<Preloader></Preloader>
 				<CardList community_id={communityId} />
 				<AddCardForm />
 			</Stack>
