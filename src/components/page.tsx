@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { ForegroundColor } from "../styles/common";
-import auth from "../library/firebase/auth";
-import { useUser } from "../modules/authentication/user-provider";
-import Button from "./button";
-import Link from "./link";
-import Text from "./text";
 import Footer from "./footer";
 import Header from "./header";
 
@@ -28,52 +22,10 @@ const Content = styled.main`
 	--spacing: var(--spacing-medium);
 `;
 
-const Title = styled.h1`
-	color: ${ForegroundColor.Nav};
-`;
-
-const HeaderContainer = styled.div`
-	grid-area: title;
-	flex-direction: row;
-`;
-
-const Navigation = styled.nav``;
-
-const User = styled.div`
-	grid-area: user;
-`;
-
 const Page: React.FC = ({ children }) => {
-	const user = useUser();
-
-	const signOut = () =>
-		auth()
-			.signOut()
-			.catch(() => alert("Sign Out Failed"));
-
 	return (
 		<Container>
-			<Header>
-				<HeaderContainer>
-					<Title>Rule Zero</Title>
-					<Navigation>
-						<Link href="/">
-							<Text>Communities</Text>
-						</Link>
-					</Navigation>
-				</HeaderContainer>
-				<User>
-					{user ? (
-						<Button onClick={signOut} title="Sign Out">
-							<Text>{user.displayName}</Text>
-						</Button>
-					) : (
-						<Link href="/sign-in">
-							<Text>Sign In or Register</Text>
-						</Link>
-					)}
-				</User>
-			</Header>
+			<Header />
 			<Content>{children}</Content>
 			<Footer />
 		</Container>

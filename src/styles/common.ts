@@ -28,3 +28,9 @@ export enum Spacing {
 	Large = "20px",
 	XLarge = "50px",
 }
+
+export enum PageWidth {
+	Small = "500px",
+	Medium = "1000px",
+	Large = "1500px",
+}

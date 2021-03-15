@@ -5,7 +5,7 @@ import { Card } from "../../types/card";
 import ResponsiveImage from "../../components/responsive-image";
 import { useUser } from "../authentication/user-provider";
 import UserControls from "./card-user-controls";
-import { BackgroundColor, FontSize } from "../../styles/common";
+import BannedIndicator from "./banned-indicator";
 
 type CardProps = {
 	card: Card;
@@ -15,24 +15,6 @@ const Container = styled.div`
 	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
-`;
-
-interface BannedIndicatorStyleProps {
-	tone?: keyof typeof BackgroundColor;
-}
-
-const BannedIndicator = styled.strong`
-	justify-content: center;
-	background-color: var(--color-overlay);
-	color: ${({ tone = "Error" }: BannedIndicatorStyleProps) =>
-		BackgroundColor[tone]};
-	text-shadow: 3px 3px #282828;
-	font-size: ${FontSize.Large};
-	position: absolute;
-	top: 20%;
-	left: 0;
-	right: 0;
-	bottom: 50%;
 `;
 
 export default ({ card }: CardProps) => {
@@ -45,7 +27,7 @@ export default ({ card }: CardProps) => {
 				alt={card.name}
 				width={252}
 			/>
-			<BannedIndicator tone={banned ? "Error" : "Success"}>
+			<BannedIndicator banned={banned}>
 				{banned ? "Banned" : "Allowed"}
 			</BannedIndicator>
 			{user && <UserControls user={user} card={card} />}

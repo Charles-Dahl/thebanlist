@@ -10,6 +10,8 @@ import NotFound from "../../components/not-found";
 import { useUser } from "../authentication/user-provider";
 import InviteGenerator from "./invite-generator";
 import Banner from "../../components/banner";
+import Title from "../../components/title";
+import Subtitle from "../../components/subtitle";
 
 interface ViewCommunityProps {
 	communityId: string;
@@ -38,8 +40,10 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 		<CommunityContext.Provider value={community}>
 			<Stack>
 				<Banner>
-					<Text>{community.name}</Text>
-					<Text>{community.isPublic ? "Public" : "Private"}</Text>
+					<Title>{community.name}</Title>
+					<Subtitle>
+						{community.isPublic ? "Public" : "Private"}
+					</Subtitle>
 					{user && community.admin.includes(user.uid) && (
 						<InviteGenerator community={community} />
 					)}
