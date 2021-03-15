@@ -34,9 +34,9 @@ body,
     --border-radius: 3px;
     --border-radius-button: 3px;
     --color: #000000;
-    --background-color-nav: var(--color-dark-1);
     --direction: column;
     --color-background: var(--color-light-2);
+    --color-background-nav: var(--color-dark-1);
 }
 
 body *:not(script) {
@@ -79,6 +79,13 @@ body *:not(script) {
 
     --color-overlay: #28282877;
     --color-error: red;
+
+    --gradient-primary: linear-gradient(
+		135deg,
+		rgba(93, 35, 187, 1) 0%,
+		rgba(0, 119, 147, 1) 66%,
+		rgba(99, 186, 171, 1) 100%
+	);
 }
 `;
 

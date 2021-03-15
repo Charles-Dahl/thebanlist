@@ -5,7 +5,7 @@ import Text from "./text";
 
 const Container = styled.footer`
 	grid-area: footer;
-	background: var(--background-color-nav);
+	background: var(--color-background-nav);
 	padding: var(--spacing-large);
 	--font-size: var(--font-size-small);
 	--color: var(--color-light-2);
@@ -13,7 +13,7 @@ const Container = styled.footer`
 
 const Footer = () => (
 	<Container>
-		<Text>Currently under construction</Text>
+		<Text>Under construction</Text>
 		<Text>
 			All card images are copyright Wizards of the Coast, LLC, a
 			subsidiary of Hasbro, Inc.

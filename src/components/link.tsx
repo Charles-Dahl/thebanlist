@@ -1,20 +1,32 @@
 import styled from "styled-components";
 
 const Link = styled.a`
+	color: var(--color);
 	padding: var(--spacing);
 	cursor: pointer;
 	border: 0;
-	background: transparent;
-	transition: background 0.2s ease-out;
 	text-decoration: none;
 	color: unset;
 	border-radius: var(--border-radius-button);
-	flex-direction: row;
+	flex-direction: column;
 	width: 100%;
 	justify-content: center;
+	outline: none;
 
-	&:hover {
-		background: var(--color-light-2);
+	:after {
+		content: "";
+		height: 2px;
+		width: 100%;
+		background: var(--gradient-primary);
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 250ms ease-in;
+	}
+
+	:hover:after,
+	:focus:after {
+		transform: scaleX(1);
+		transform-origin: left;
 	}
 `;
 

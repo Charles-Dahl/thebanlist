@@ -24,7 +24,8 @@ const Container = styled.div`
 	font-size: var(--font-size-medium);
 	border-radius: 3px;
 
-	:focus-within {
+	:focus-within,
+	:hover {
 		background: var(--color-light-1);
 		width: 100%;
 		box-shadow: 0 0 0 2px var(--color-background),
@@ -71,12 +72,7 @@ const Button = styled.button`
 	cursor: pointer;
 	margin-left: auto;
 	margin-right: 4px;
-	background: linear-gradient(
-		135deg,
-		rgba(93, 35, 187, 1) 0%,
-		rgba(0, 119, 147, 1) 66%,
-		rgba(99, 186, 171, 1) 100%
-	);
+	background: var(--gradient-primary);
 	color: var(--button-color);
 	outline: none;
 	transform: rotate(var(--button-rotation));
@@ -84,6 +80,10 @@ const Button = styled.button`
 
 	:focus {
 		box-shadow: 0 0 0 4px var(--color-brand-2);
+	}
+
+	:hover {
+		filter: hue-rotate(20deg);
 	}
 `;
 

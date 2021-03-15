@@ -11,8 +11,9 @@ type Props = {
 
 const Container = styled.div`
 	width: 100%;
-	flex-direction: row;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 251px);
+	gap: var(--spacing-xsmall);
 	justify-content: center;
 `;
 

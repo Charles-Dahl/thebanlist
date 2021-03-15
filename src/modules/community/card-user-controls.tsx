@@ -46,10 +46,10 @@ export default ({ user, card }: UserControlProps) => {
 
 	return (
 		<Controls>
-			<Button tone="Success" onClick={dontBan}>
+			<Button onClick={dontBan}>
 				<Icon name={votedDontBan ? "thumb_up" : "thumb_up_off_alt"} />
 			</Button>
-			<Button tone="Error" onClick={ban}>
+			<Button onClick={ban}>
 				<Icon name={votedBan ? "thumb_down" : "thumb_down_off_alt"} />
 			</Button>
 		</Controls>

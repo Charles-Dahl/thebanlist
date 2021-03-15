@@ -1,25 +1,23 @@
 import styled from "styled-components";
 
-import { BackgroundColor } from "../styles/common";
-
-interface ButtonProps {
-	tone?: keyof typeof BackgroundColor;
-}
-
 const Button = styled.button`
-	padding: var(--spacing-small);
+	padding: var(--spacing-small) var(--spacing-medium);
 	cursor: pointer;
 	border: 0;
-	background: transparent;
-	transition: background 0.1s ease-out;
+	background: var(--gradient-primary);
 	flex: 1;
 	border-radius: var(--border-radius-button);
 	width: 100%;
 	justify-content: center;
+	transition: filter 100ms ease-in-out;
+	outline: none;
 
-	&:hover {
-		background: ${({ tone = "Success" }: ButtonProps) =>
-			BackgroundColor[tone]};
+	:focus {
+		box-shadow: 0 0 0 4px var(--color-brand-2);
+	}
+
+	:hover {
+		mix-blend-mode: exclusion;
 	}
 
 	&:disabled {

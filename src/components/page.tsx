@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BackgroundColor, ForegroundColor } from "../styles/common";
+import { ForegroundColor } from "../styles/common";
 import auth from "../library/firebase/auth";
 import { useUser } from "../modules/authentication/user-provider";
 import Button from "./button";
 import Link from "./link";
 import Text from "./text";
 import Footer from "./footer";
+import Header from "./header";
 
 const Container = styled.div`
 	width: 100%;
@@ -19,15 +20,6 @@ const Container = styled.div`
 		"header header header"
 		". main ."
 		"footer footer footer";
-`;
-
-const Header = styled.header`
-	grid-area: header;
-	background: ${BackgroundColor.Nav};
-	padding: 20px;
-	display: grid;
-	grid-template-columns: 1fr minmax(100px, 1500px) minmax(100px, 1fr);
-	grid-template-areas: ". title user";
 `;
 
 const Content = styled.main`
