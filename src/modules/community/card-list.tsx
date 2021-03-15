@@ -12,9 +12,11 @@ type Props = {
 const Container = styled.div`
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 251px);
 	gap: var(--spacing-xsmall);
 	justify-content: center;
+
+	/* Allows columns to grow between 150px and 252px */
+	grid-template-columns: repeat(auto-fill, max(min(20vw, 252px), 150px));
 `;
 
 export default ({ community_id }: Props) => {

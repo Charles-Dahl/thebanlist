@@ -14,7 +14,7 @@ const Container = styled.div`
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-columns: 1fr minmax(100px, 1500px) minmax(100px, 1fr);
+	grid-template-columns: 1fr minmax(100px, 1500px) 1fr;
 	grid-template-rows: min-content 1fr;
 	grid-template-areas:
 		"header header header"

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Card } from "../../types/card";
+import ResponsiveImage from "../../components/responsive-image";
 import { useUser } from "../authentication/user-provider";
 import UserControls from "./card-user-controls";
 import { BackgroundColor, FontSize } from "../../styles/common";
@@ -39,14 +40,13 @@ export default ({ card }: CardProps) => {
 	const banned = card.ban.length > card.dont_ban.length;
 	return (
 		<Container>
-			<img
+			<ResponsiveImage
 				src={card.image_uris.normal}
 				alt={card.name}
 				width={252}
-				height={352}
-			></img>
+			/>
 			<BannedIndicator tone={banned ? "Error" : "Success"}>
-				{banned ? "Banned" : "Not Banned"}
+				{banned ? "Banned" : "Allowed"}
 			</BannedIndicator>
 			{user && <UserControls user={user} card={card} />}
 		</Container>
