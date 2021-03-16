@@ -7,7 +7,6 @@ import { BackgroundColor } from "../../styles/common";
 import Button from "../../components/button";
 import Link from "../../components/link";
 import Text from "../../components/text";
-import Icon from "../../components/icon";
 import { useUser } from "../authentication/user-provider";
 import Preloader from "../../components/preloader";
 
@@ -18,6 +17,7 @@ const Container = styled.div`
 	overflow: hidden;
 	--border-radius: 0;
 	width: 100%;
+	height: 100%;
 `;
 
 export default () => {
@@ -30,8 +30,7 @@ export default () => {
 		<Container>
 			{user ? (
 				<Link href="/community/new">
-					<Icon name="add" />
-					<Text>Create New Community</Text>
+					<Text icon="add">Create New Community</Text>
 				</Link>
 			) : null}
 			{loading && <Preloader />}
@@ -39,7 +38,7 @@ export default () => {
 				<Community key={community.id} community={community} />
 			))}
 			<Button onClick={loadMore}>
-				<Text>Load More</Text>
+				<Text icon="refresh">Load More</Text>
 			</Button>
 		</Container>
 	);

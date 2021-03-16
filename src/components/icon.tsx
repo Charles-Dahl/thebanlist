@@ -20,7 +20,7 @@ const Icon: React.FC<IconProps> = ({ name, ...rest }) => {
 
 export default Icon;
 
-const iconNames = {
+export const iconNames = {
 	ac_unit: "eb3b",
 	access_alarm: "e190",
 	access_alarms: "e191",

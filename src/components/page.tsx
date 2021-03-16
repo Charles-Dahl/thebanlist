@@ -19,6 +19,7 @@ const Container = styled.div`
 const Content = styled.main`
 	grid-area: main;
 	height: 100%;
+	justify-content: center;
 	--spacing: var(--spacing-medium);
 `;
 

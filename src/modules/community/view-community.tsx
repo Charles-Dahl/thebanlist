@@ -52,7 +52,6 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 						<InviteGenerator community={community} />
 					)}
 				</Banner>
-				<Preloader></Preloader>
 				<CardList community_id={communityId} />
 				<AddCardForm />
 			</Stack>

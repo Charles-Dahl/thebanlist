@@ -2,13 +2,13 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const cardAnimation = keyframes`
-    0% { transform: rotate(40deg); z-index: 1 }
-    100% { transform: rotate(300deg); z-index: 0 }
+    0% {transform: rotate(40deg); z-index: 1;}
+    100% {transform: rotate(300deg); z-index: 0;}
 `;
 
 const containerAnimation = keyframes`
-    0% {transform: rotate(0deg) }
-    100% {transform: rotate(20deg)}
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(20deg);}
 `;
 
 const Card = styled.div`
@@ -35,7 +35,6 @@ const MovingCardContainer = styled(CardContainer)`
 
 const Container = styled.div`
 	position: relative;
-
 	height: 210px;
 	width: 210px;
 	padding: 30px;

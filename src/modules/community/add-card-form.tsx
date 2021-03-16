@@ -2,11 +2,8 @@ import React, { useState } from "react";
 
 import { searchTermSchema } from "../../types/formSchema";
 import useField from "../../hooks/use-field";
-import Button from "../../components/button";
-import Text from "../../components/text";
 import Form from "../../components/form";
 import Stack from "../../components/stack";
-import Field from "../../components/field";
 import { search } from "../../config/scryfall";
 import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
@@ -19,7 +16,7 @@ const Container = styled.div`
 	width: 100%;
 	background: var(--color-light-2);
 	--direction: column;
-	padding: var(--spacing-small);
+	padding: var(--spacing-medium);
 `;
 
 const createCard = ({
@@ -45,18 +42,18 @@ const AddCardForm = () => {
 	return (
 		<Container>
 			<Form onSubmit={handleSubmit}>
-				<Stack>
-					<ExpandableSearch
-						name="search-terms"
-						{...searchTermsFieldProps}
-					/>
-				</Stack>
+				<ExpandableSearch
+					name="search-terms"
+					{...searchTermsFieldProps}
+				/>
 			</Form>
-			<div>
-				{cardResults.map((card) => (
-					<SearchResultCard key={card.id} card={card} />
-				))}
-			</div>
+			{cardResults.length > 0 && (
+				<div>
+					{cardResults.map((card) => (
+						<SearchResultCard key={card.id} card={card} />
+					))}
+				</div>
+			)}
 		</Container>
 	);
 };

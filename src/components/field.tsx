@@ -14,6 +14,7 @@ interface FieldProps extends InputProps {
 
 const StyledLabel = styled.label`
 	align-items: flex-start;
+	width: 100%;
 	--spacing: var(--spacing-small);
 `;
 

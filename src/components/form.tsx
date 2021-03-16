@@ -7,6 +7,7 @@ interface FormProps {
 
 const Container = styled.form`
 	width: 100%;
+	max-width: 600px;
 `;
 
 const Form: React.FC<FormProps> = ({ children, onSubmit = () => {} }) => {
