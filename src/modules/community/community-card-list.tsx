@@ -1,12 +1,11 @@
 import React from "react";
 
 import useSubscribeCards from "./hooks/use-subscribe-cards";
-import Card from "./card";
+import CommunityCard from "./community-card";
 import styled from "styled-components";
-import Text from "../../components/text";
 import Preloader from "../../components/preloader";
 
-type Props = {
+type CommunityCardListProps = {
 	community_id: string;
 };
 
@@ -20,7 +19,7 @@ const Container = styled.div`
 	grid-template-columns: repeat(auto-fill, max(min(20vw, 252px), 150px));
 `;
 
-export default ({ community_id }: Props) => {
+const CommunityCardList = ({ community_id }: CommunityCardListProps) => {
 	const [cards, loadingCards] = useSubscribeCards(community_id);
 
 	if (loadingCards) {
@@ -30,8 +29,10 @@ export default ({ community_id }: Props) => {
 	return (
 		<Container>
 			{cards.map((card) => (
-				<Card key={card.id} card={card} />
+				<CommunityCard key={card.id} card={card} />
 			))}
 		</Container>
 	);
 };
+
+export default CommunityCardList;

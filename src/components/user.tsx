@@ -5,10 +5,13 @@ import auth from "../library/firebase/auth";
 import { useUser } from "../modules/authentication/user-provider";
 import Button from "./button";
 import Link from "./link";
+import Stack from "./stack";
 import Text from "./text";
 
 const Container = styled.div`
 	grid-area: user;
+	--font-size: var(--font-size-small);
+	--direction: row;
 `;
 
 const User = () => {
@@ -22,13 +25,21 @@ const User = () => {
 	return (
 		<Container>
 			{user ? (
-				<Button onClick={signOut} title="Sign Out">
-					<Text>{user.displayName}</Text>
-				</Button>
+				<Stack>
+					<Text iconBefore="account_box">{user.displayName}</Text>
+					<Button onClick={signOut} title="Sign Out">
+						<Text icon="logout">Sign out</Text>
+					</Button>
+				</Stack>
 			) : (
-				<Link href="/sign-in">
-					<Text>Sign In or Register</Text>
-				</Link>
+				<Stack>
+					<Link href="/sign-in">
+						<Text>Sign In</Text>
+					</Link>
+					<Link href="/register">
+						<Text>Register</Text>
+					</Link>
+				</Stack>
 			)}
 		</Container>
 	);

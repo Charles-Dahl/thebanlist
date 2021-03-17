@@ -21,8 +21,8 @@ const InnerContainer = styled.div`
 		"nav user";
 
 	@media (min-width: 860px) {
-		grid-template-columns: 200px minmax(260px, 1fr) 200px 200px;
-		grid-template-areas: "title . nav user";
+		grid-template-columns: 300px minmax(260px, 1fr) 300px;
+		grid-template-areas: "title nav user";
 	}
 `;
 

@@ -3,7 +3,7 @@ import React, { createContext, useContext } from "react";
 import useFindCommunity from "./hooks/use-find-community";
 import AddCardForm from "./add-card-form";
 import { Community } from "../../types/community";
-import CardList from "./card-list";
+import CommunityCardList from "./community-card-list";
 import Stack from "../../components/stack";
 import Text from "../../components/text";
 import NotFound from "../../components/not-found";
@@ -52,7 +52,7 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 						<InviteGenerator community={community} />
 					)}
 				</Banner>
-				<CardList community_id={communityId} />
+				<CommunityCardList community_id={communityId} />
 				<AddCardForm />
 			</Stack>
 		</CommunityContext.Provider>

@@ -1,33 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 
-import { BackgroundColor } from "../../styles/common";
-import Button from "../../components/button";
 import { Card } from "../../types/card";
 import useSaveCard from "./hooks/use-save-card";
-import Icon from "../../components/icon";
 import { User } from "firebase";
+import CardButton from "./card-button";
+import CardControls from "./card-controls";
 
-interface UserControlProps {
+interface CardUserControlsProps {
 	user: User;
 	card: Card;
 }
 
-const Controls = styled.div`
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	flex-direction: row;
-	background: ${BackgroundColor.Overlay};
-	border-radius: 0 0 10px 10px;
-	overflow: hidden;
-	--color-icon: var(--color-light-1);
-	--font-size-icon: var(--font-size-medium);
-	--border-radius-button: 0;
-`;
-
-export default ({ user, card }: UserControlProps) => {
+const CardUserControls = ({ user, card }: CardUserControlsProps) => {
 	const save = useSaveCard();
 	const votedBan = card.ban.includes(user.uid);
 	const votedDontBan = card.dont_ban.includes(user.uid);
@@ -45,13 +29,19 @@ export default ({ user, card }: UserControlProps) => {
 	};
 
 	return (
-		<Controls>
-			<Button onClick={dontBan}>
-				<Icon name={votedDontBan ? "thumb_up" : "thumb_up_off_alt"} />
-			</Button>
-			<Button onClick={ban}>
-				<Icon name={votedBan ? "thumb_down" : "thumb_down_off_alt"} />
-			</Button>
-		</Controls>
+		<CardControls>
+			<CardButton
+				onClick={dontBan}
+				icon={votedDontBan ? "thumb_up" : "thumb_up_off_alt"}
+				left
+			/>
+			<CardButton
+				onClick={ban}
+				icon={votedBan ? "thumb_down" : "thumb_down_off_alt"}
+				right
+			/>
+		</CardControls>
 	);
 };
+
+export default CardUserControls;

@@ -93,6 +93,13 @@ body *:not(script) {
 		rgba(0, 119, 147, 1) 66%,
 		rgba(99, 186, 171, 1) 100%
 	);
+
+    --gradient-radial: radial-gradient(
+		circle at center,
+		rgba(93, 35, 187, 1) 0%,
+		rgba(0, 119, 147, 1) 66%,
+		rgba(99, 186, 171, 1) 100%
+	);
 }
 `;
 

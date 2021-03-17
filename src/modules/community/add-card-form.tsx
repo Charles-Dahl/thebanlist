@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { searchTermSchema } from "../../types/formSchema";
 import useField from "../../hooks/use-field";
 import Form from "../../components/form";
-import Stack from "../../components/stack";
 import { search } from "../../config/scryfall";
 import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
