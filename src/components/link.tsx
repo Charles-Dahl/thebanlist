@@ -19,14 +19,12 @@ const Link = styled.a`
 		width: 100%;
 		background: var(--gradient-primary);
 		transform: scaleX(0);
-		transform-origin: right;
 		transition: transform 250ms ease-in;
 	}
 
 	:hover:after,
 	:focus:after {
 		transform: scaleX(1);
-		transform-origin: left;
 	}
 `;
 

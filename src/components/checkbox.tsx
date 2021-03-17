@@ -1,8 +1,9 @@
-import React from "react";
+import React, { forwardRef, RefObject } from "react";
 import styled from "styled-components";
 
 export interface CheckboxProps {
 	name?: string;
+	id?: string;
 	value?: boolean;
 	onChange?: (value: boolean) => void;
 	onBlur?: () => void;
@@ -15,18 +16,20 @@ const StyledInput = styled.input`
 	transform: scale(1.5);
 `;
 
-const Checkbox = ({ onChange = () => {}, value, ...rest }: CheckboxProps) => {
-	const handleChange = () => {
-		onChange(!value);
-	};
-	return (
-		<StyledInput
-			checked={value}
-			type="checkbox"
-			onChange={handleChange}
-			{...rest}
-		/>
-	);
-};
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+	({ onChange = () => {}, value, ...rest }, ref) => {
+		const handleChange = () => {
+			onChange(!value);
+		};
+		return (
+			<StyledInput
+				checked={value}
+				type="checkbox"
+				onChange={handleChange}
+				{...rest}
+			/>
+		);
+	}
+);
 
 export default Checkbox;
