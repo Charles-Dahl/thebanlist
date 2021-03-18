@@ -11,10 +11,8 @@ const Container = styled(Link)`
 
 const Home = () => {
 	return (
-		<Container>
-			<Link href="">
-				<Title>Rule Zero</Title>
-			</Link>
+		<Container href="">
+			<Title>Rule Zero</Title>
 		</Container>
 	);
 };

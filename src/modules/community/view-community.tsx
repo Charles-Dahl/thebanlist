@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import styled from "styled-components";
 
 import useFindCommunity from "./hooks/use-find-community";
 import AddCardForm from "./add-card-form";
@@ -17,6 +18,16 @@ import Preloader from "../../components/preloader";
 interface ViewCommunityProps {
 	communityId: string;
 }
+
+const Container = styled.div`
+	--font-size-icon: 3rem;
+	--color-icon: var(--color-light-2);
+	--menu-toggle-width: 4rem;
+
+	width: 90%;
+	position: relative;
+	padding: 0 var(--font-size-icon);
+`;
 
 const CommunityContext = createContext<Community | null>(null);
 
@@ -44,13 +55,15 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 		<CommunityContext.Provider value={community}>
 			<Stack>
 				<Banner>
-					<Title>{community.name}</Title>
-					<Subtitle>
-						{community.isPublic ? "Public" : "Private"}
-					</Subtitle>
-					{user && community.admin.includes(user.uid) && (
-						<InviteGenerator community={community} />
-					)}
+					<Container>
+						<Title>{community.name}</Title>
+						<Subtitle>
+							{community.isPublic ? "Public" : "Private"}
+						</Subtitle>
+						{user && community.admin.includes(user.uid) && (
+							<InviteGenerator community={community} />
+						)}
+					</Container>
 				</Banner>
 				<CommunityCardList community_id={communityId} />
 				<AddCardForm />

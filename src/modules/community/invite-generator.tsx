@@ -1,4 +1,4 @@
-import React, { MouseEvent, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Checkbox from "../../components/checkbox";
@@ -7,6 +7,7 @@ import Text from "../../components/text";
 import InviteDisplay from "./invite-display";
 import generateInvite from "../../library/generate-invite";
 import Icon from "../../components/icon";
+import FocusToggle from "../../components/focus-toggle";
 
 export type Community = {
 	id: string;
@@ -35,43 +36,29 @@ const StyledLabel = styled.label.attrs({ tabIndex: -1 })`
 `;
 
 const Container = styled.div`
-	position: relative;
-	--menu-transform: scaleY(0);
+	position: absolute;
+	top: 0;
+	right: 0;
+	align-items: flex-end;
+	--menu-transform: scale(1, 0);
 	--menu-opacity: 0;
+	--focus-toggle-transform: rotate(0deg);
+	width: 100%;
 
 	:focus-within {
-		--menu-transform: scaleY(1);
+		--menu-background: var(--color-overlay);
+		--menu-transform: scale(1, 1);
 		--menu-opacity: 1;
+		--focus-toggle-transform: rotate(90deg);
 	}
 `;
 
-const FocusToggle: React.FC = ({ children }) => {
-	const labelRef = useRef<HTMLLabelElement>(null);
-
-	const handleClick = (event: MouseEvent<HTMLLabelElement>) => {
-		event.preventDefault();
-		if (document.activeElement && labelRef.current) {
-			if (document.activeElement === labelRef.current) {
-				return labelRef.current.blur();
-			}
-			return labelRef.current.focus();
-		}
-	};
-
-	return (
-		<label ref={labelRef} onMouseDown={handleClick} tabIndex={-1}>
-			{children}
-		</label>
-	);
-};
-
 const MenuContainer = styled.div`
-	position: absolute;
-	top: 100%;
-	background-color: var(--color-overlay);
+	background-color: var(--menu-background);
 	transform: var(--menu-transform);
-	transform-origin: top;
+	transform-origin: top right;
 	transition: transform 250ms ease-in-out;
+	border-radius: 3px 0;
 
 	> * {
 		opacity: var(--menu-opacity);

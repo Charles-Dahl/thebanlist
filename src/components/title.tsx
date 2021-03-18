@@ -7,6 +7,7 @@ const Title = styled.h1`
 	-webkit-background-clip: text;
 	background-clip: text;
 	margin: 0;
+	text-align: center;
 `;
 
 export default Title;
