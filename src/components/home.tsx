@@ -4,10 +4,7 @@ import styled from "styled-components";
 import Link from "./link";
 import Title from "./title";
 
-const Container = styled(Link)`
-	grid-area: title;
-	--color-title: var(--color-light-1);
-`;
+const Container = styled(Link)``;
 
 const Home = () => {
 	return (

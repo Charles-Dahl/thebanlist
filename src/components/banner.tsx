@@ -13,7 +13,8 @@ const Banner = styled.div`
 	background-position: 0 0, 100% 0, 75px 0;
 
 	padding: var(--spacing-small);
-	min-width: max(60vw, 500px);
+    width: 100%;
+}
 
 	--color-title: var(--color-brand-3);
 	--color-subtitle: var(--color-dark-3);

@@ -3,13 +3,13 @@ import styled from "styled-components";
 const Link = styled.a`
 	color: var(--color);
 	padding: var(--spacing);
+	font-family: var(--font-family-accent);
 	cursor: pointer;
 	border: 0;
 	text-decoration: none;
 	color: unset;
 	border-radius: var(--border-radius-button);
 	flex-direction: column;
-	width: 100%;
 	justify-content: center;
 	outline: none;
 

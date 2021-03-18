@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Text from "./text";
+import Paragraph from "./paragraph";
 
 const Container = styled.footer`
 	grid-area: footer;
@@ -13,16 +13,16 @@ const Container = styled.footer`
 
 const Footer = () => (
 	<Container>
-		<Text>Under construction</Text>
-		<Text>
+		<Paragraph>Under Construction</Paragraph>
+		<Paragraph>
 			All card images are copyright Wizards of the Coast, LLC, a
 			subsidiary of Hasbro, Inc.
-		</Text>
-		<Text>
+		</Paragraph>
+		<Paragraph>
 			Rule Zero is not produced by, endorsed by, supported by, or
 			affiliated with Wizards of the Coast.
-		</Text>
-		<Text>All other content copyright Charles Dahl</Text>
+		</Paragraph>
+		<Paragraph>All other content copyright Charles Dahl</Paragraph>
 	</Container>
 );
 

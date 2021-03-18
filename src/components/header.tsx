@@ -12,17 +12,10 @@ const Container = styled.header`
 
 const InnerContainer = styled.div`
 	padding: 20px;
-	display: grid;
-	max-width: 1500px;
-	width: 100%;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas:
-		"title title"
-		"nav user";
+	width: min(1500px, 100%);
 
 	@media (min-width: 860px) {
-		grid-template-columns: 300px minmax(260px, 1fr) 300px;
-		grid-template-areas: "title nav user";
+		flex-direction: row;
 	}
 `;
 

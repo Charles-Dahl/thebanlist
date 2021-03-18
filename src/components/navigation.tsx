@@ -4,9 +4,7 @@ import styled from "styled-components";
 import Link from "./link";
 import Text from "./text";
 
-const Container = styled.nav`
-	grid-area: nav;
-`;
+const Container = styled.nav``;
 
 const Navigation = () => {
 	return (

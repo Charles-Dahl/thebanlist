@@ -28,10 +28,14 @@ body,
 #root {
 	width: 100%;
 	height: 100%;
+}
 
-    /* default values */
+
+/* default values */
+body {
     --spacing: var(--spacing-none);
     --font-size: var(--font-size-medium);
+    --font-family: var(--font-family-primary)
     --border-radius: 3px;
     --border-radius-button: 3px;
     --color: #000000;
@@ -60,11 +64,15 @@ body *:not(script) {
     --page-width-medium: 1000px;
     --page-width-large: 1500px;
 
-    --font-size-xsmall: 12px;
-    --font-size-small: 18px;
-	--font-size-medium: 24px;
-	--font-size-large: 36px;
-	--font-size-xlarge: 48px;
+    --font-size-xsmall: .7rem;
+    --font-size-small: .9rem;
+	--font-size-medium: 1rem;
+	--font-size-large: 1.5rem;
+	--font-size-xlarge: 2rem;
+
+    --font-family-primary: 'Raleway', sans-serif;
+    --font-family-accent: 'Mulish', sans-serif;
+    --font-family-serif: 'Della Respira', serif;
 
     --color-light-1: #FFFFFF;
     --color-light-2: #EBEBEB;
@@ -75,11 +83,8 @@ body *:not(script) {
     --color-dark-3: #000000;
 
     --color-brand-1: #C3FEF1;
-    // --color-brand-1: #C4FCF0;
     --color-brand-2: #33EACC;
-    // --color-brand-2: #63BAAB;
     --color-brand-3: #0a6e97;
-    // --color-brand-3: #4C8077;
 
     --color-accent: #5D23BB;
 

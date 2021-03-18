@@ -20,13 +20,13 @@ interface ViewCommunityProps {
 }
 
 const Container = styled.div`
-	--font-size-icon: 3rem;
+	--font-size-icon: 2rem;
 	--color-icon: var(--color-light-2);
 	--menu-toggle-width: 4rem;
 
 	width: 90%;
 	position: relative;
-	padding: 0 var(--font-size-icon);
+	padding: 0 var(--menu-toggle-width);
 `;
 
 const CommunityContext = createContext<Community | null>(null);

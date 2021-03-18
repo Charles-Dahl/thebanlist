@@ -9,9 +9,7 @@ import Stack from "./stack";
 import Text from "./text";
 
 const Container = styled.div`
-	grid-area: user;
 	--font-size: var(--font-size-small);
-	--direction: row;
 `;
 
 const User = () => {
