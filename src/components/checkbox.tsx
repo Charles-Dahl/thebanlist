@@ -14,6 +14,7 @@ const StyledInput = styled.input`
 	border-color: #eeeeee;
 	padding: 10px;
 	transform: scale(1.5);
+	outline: none;
 `;
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(

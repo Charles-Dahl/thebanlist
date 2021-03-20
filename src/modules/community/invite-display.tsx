@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import Button from "../../components/button";
 import Icon from "../../components/icon";
-import { FontSize } from "../../styles/common";
 
 interface InviteDisplayProps {
 	invite: string;
@@ -11,16 +10,17 @@ interface InviteDisplayProps {
 
 const InviteInput = styled.input`
 	text-overflow: ellipsis;
-	background: none;
+	background: var(--color-light-2);
+	border-radius: 3px;
+	padding: var(--spacing-small);
 	border: none;
 	outline: none;
-	font-size: ${FontSize.Small};
 `;
 
 const Container = styled.label`
-	display: grid;
-	grid-template-columns: max-content max-content;
-	grid-gap: 10px;
+	flex-direction: row;
+	gap: 10px;
+	--font-size-icon: 1em;
 `;
 
 export default ({ invite }: InviteDisplayProps) => {
@@ -33,6 +33,10 @@ export default ({ invite }: InviteDisplayProps) => {
 		}
 	};
 
+	if (!invite) {
+		return null;
+	}
+
 	return (
 		<Container>
 			<InviteInput
@@ -41,14 +45,9 @@ export default ({ invite }: InviteDisplayProps) => {
 				value={invite}
 				readOnly
 			/>
-			{invite && (
-				<Button
-					onClick={copyToClipboard}
-					title="Copy Invite to Clipboard"
-				>
-					<Icon name="content_copy"></Icon>
-				</Button>
-			)}
+			<Button onClick={copyToClipboard} title="Copy Invite to Clipboard">
+				<Icon name="content_copy" />
+			</Button>
 		</Container>
 	);
 };

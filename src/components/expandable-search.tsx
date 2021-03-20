@@ -29,16 +29,16 @@ const Container = styled.div`
 		background: var(--color-light-1);
 		width: 100%;
 		box-shadow: 0 0 0 2px var(--color-background),
-			0 0 0 4px var(--color-brand-2);
+			0 0 0 4px var(--color-brand-3);
 
-		/* input variables */
+		/* input */
 		--input-cursor: initial;
 		--input-opacity: 1;
 
-		/* button variables */
+		/* button */
 		--button-rotation: 360deg;
 
-		/* error variables */
+		/* error */
 		--error-display: flex;
 	}
 `;

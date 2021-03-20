@@ -50,7 +50,7 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 	if (!community) {
 		return <NotFound />;
 	}
-	// Add expandable banner for search
+
 	return (
 		<CommunityContext.Provider value={community}>
 			<Stack>

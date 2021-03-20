@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import CheckboxLabelled from "../../components/checkbox-labelled";
 import Button from "../../components/button";
+import Stack from "../../components/stack";
 import Text from "../../components/text";
 import InviteDisplay from "./invite-display";
 import generateInvite from "../../library/generate-invite";
@@ -49,32 +50,39 @@ export default ({ community }: InviteGeneratorProps) => {
 
 	return (
 		<DropdownMenu icon="settings">
-			<CheckboxLabelled
-				id="toggle-admin"
-				value={admin}
-				onChange={setAdmin}
-				label="Administrator"
-			/>
-			<CheckboxLabelled
-				id="toggle-voter"
-				value={voter}
-				onChange={setVoter}
-				label="Voting"
-			/>
-			<CheckboxLabelled
-				id="toggle-add"
-				value={addCards}
-				onChange={setAddCards}
-				label="Add Cards"
-			/>
-			<Button disabled={!admin && !voter && !addCards} onClick={generate}>
-				<Text>Generate Invite</Text>
-			</Button>
-			{loading ? (
-				<Text>Generating...</Text>
-			) : (
-				<InviteDisplay invite={invite} />
-			)}
+			<Stack>
+				<fieldset>
+					<CheckboxLabelled
+						id="toggle-admin"
+						value={admin}
+						onChange={setAdmin}
+						label="Administrator"
+					/>
+					<CheckboxLabelled
+						id="toggle-voter"
+						value={voter}
+						onChange={setVoter}
+						label="Voting"
+					/>
+					<CheckboxLabelled
+						id="toggle-add"
+						value={addCards}
+						onChange={setAddCards}
+						label="Add Cards"
+					/>
+				</fieldset>
+				<Button
+					disabled={!admin && !voter && !addCards}
+					onClick={generate}
+				>
+					<Text>Generate Invite</Text>
+				</Button>
+				{loading ? (
+					<Text>Generating...</Text>
+				) : (
+					<InviteDisplay invite={invite} />
+				)}
+			</Stack>
 		</DropdownMenu>
 	);
 };

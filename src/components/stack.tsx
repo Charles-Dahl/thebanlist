@@ -6,11 +6,7 @@ const Stack = styled.div`
 	flex-direction: var(--direction);
 	width: 100%;
 	height: 100%;
-	margin-top: calc(-2 * var(--spacing));
-
-	> * {
-		margin: var(--spacing);
-	}
+	gap: var(--spacing);
 `;
 
 export default Stack;

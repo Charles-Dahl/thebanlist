@@ -13,6 +13,8 @@ const Container = styled.div`
 	--menu-transform: scale(1, 0);
 	--menu-opacity: 0;
 	--focus-toggle-transform: rotate(0deg);
+	--menu-transition: opacity 100ms ease-in-out;
+	--color: var(--color-light-1);
 
 	position: absolute;
 	top: 0;
@@ -21,23 +23,24 @@ const Container = styled.div`
 	width: 100%;
 
 	:focus-within {
-		--menu-background: var(--color-overlay);
 		--menu-transform: scale(1, 1);
 		--menu-opacity: 1;
 		--focus-toggle-transform: rotate(90deg);
+		--menu-transition: opacity 200ms ease-in-out 200ms;
 	}
 `;
 
 const MenuContainer = styled.div`
-	background-color: var(--menu-background);
+	background-color: var(--color-overlay);
 	transform: var(--menu-transform);
-	transform-origin: top right;
+	transform-origin: top;
 	transition: transform 250ms ease-in-out;
 	border-radius: 3px 0;
+	padding: var(--spacing-medium);
 
 	> * {
 		opacity: var(--menu-opacity);
-		transition: opacity 150ms ease-in 150ms;
+		transition: var(--menu-transition);
 	}
 `;
 

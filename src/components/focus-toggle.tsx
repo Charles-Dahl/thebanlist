@@ -6,6 +6,9 @@ const Label = styled.label`
 	transition: transform 250ms ease-in;
 	transform: var(--focus-toggle-transform);
 	padding: 1em;
+	:hover {
+		cursor: pointer;
+	}
 `;
 
 const FocusToggle: React.FC = ({ children }) => {
