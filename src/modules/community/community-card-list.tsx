@@ -21,6 +21,7 @@ const Container = styled.div`
 
 const CommunityCardList = ({ community_id }: CommunityCardListProps) => {
 	const [cards, loadingCards] = useSubscribeCards(community_id);
+	console.log(cards[0]);
 
 	if (loadingCards) {
 		return <Preloader />;

@@ -8,6 +8,7 @@ import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
 import styled from "styled-components";
 import ExpandableSearch from "../../components/expandable-search";
+import CardList from "./card-list";
 
 const Container = styled.div`
 	position: sticky;
@@ -47,11 +48,11 @@ const AddCardForm = () => {
 				/>
 			</Form>
 			{cardResults.length > 0 && (
-				<div>
+				<CardList>
 					{cardResults.map((card) => (
 						<SearchResultCard key={card.id} card={card} />
 					))}
-				</div>
+				</CardList>
 			)}
 		</Container>
 	);
