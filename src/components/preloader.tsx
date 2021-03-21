@@ -12,16 +12,16 @@ const containerAnimation = keyframes`
 `;
 
 const Card = styled.div`
-	height: 50px;
-	width: 36px;
+	height: 1.05em;
+	width: 0.75em;
 	background: var(--gradient-primary);
 	border-radius: 2px;
 	border: 1px solid var(--color-light-3);
 `;
 
 const CardContainer = styled.div`
-	height: 150px;
-	width: 36px;
+	height: 3.15em;
+	width: 0.75em;
 	position: absolute;
 	z-index: 1;
 	transform: rotate(${({ offset }: { offset: string }) => offset});
@@ -33,20 +33,33 @@ const MovingCardContainer = styled(CardContainer)`
 	animation-iteration-count: infinite;
 `;
 
-const Container = styled.div`
+const sizes = {
+	small: "1rem",
+	medium: "2rem",
+	large: "3rem",
+};
+
+const Container = styled.div<PreloaderProps>`
+	--font-size: ${({ size }) => sizes[size]};
+	font-size: var(--font-size);
+	flex-shrink: 0;
 	position: relative;
-	height: 210px;
-	width: 210px;
-	padding: 30px;
+	height: 4em;
+	width: 4em;
+	padding: 0.425em;
 
 	animation-name: ${containerAnimation};
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 `;
 
-const Preloader = () => {
+interface PreloaderProps {
+	size: keyof typeof sizes;
+}
+
+const Preloader = ({ size }: PreloaderProps) => {
 	return (
-		<Container>
+		<Container size={size}>
 			<CardContainer offset="-40deg">
 				<Card></Card>
 			</CardContainer>
@@ -64,6 +77,10 @@ const Preloader = () => {
 			</MovingCardContainer>
 		</Container>
 	);
+};
+
+Preloader.defaultProps = {
+	size: "medium",
 };
 
 export default Preloader;

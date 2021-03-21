@@ -35,7 +35,7 @@ body,
 body {
     --spacing: var(--spacing-none);
     --font-size: var(--font-size-medium);
-    --font-family: var(--font-family-primary)
+    --font-family: var(--font-family-primary);
     --border-radius: 3px;
     --border-radius-button: 3px;
     --color: #000000;
@@ -64,11 +64,11 @@ body *:not(script) {
     --page-width-medium: 1000px;
     --page-width-large: 1500px;
 
-    --font-size-xsmall: .7rem;
-    --font-size-small: .9rem;
-	--font-size-medium: 1rem;
-	--font-size-large: 1.5rem;
-	--font-size-xlarge: 2rem;
+    --font-size-xsmall: clamp(.5rem, 1vw, 1rem);
+    --font-size-small: clamp(.8rem, 1.5vw, 1.5rem);
+	--font-size-medium: clamp(1rem, 2vw, 2rem);
+	--font-size-large: clamp(1.5rem, 3vw, 3rem);
+	--font-size-xlarge: clamp(2rem, 3.5vw, 4rem);
 
     --font-family-primary: 'Raleway', sans-serif;
     --font-family-accent: 'Mulish', sans-serif;

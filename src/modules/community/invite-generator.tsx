@@ -51,26 +51,24 @@ export default ({ community }: InviteGeneratorProps) => {
 	return (
 		<DropdownMenu icon="settings">
 			<Stack>
-				<fieldset>
-					<CheckboxLabelled
-						id="toggle-admin"
-						value={admin}
-						onChange={setAdmin}
-						label="Administrator"
-					/>
-					<CheckboxLabelled
-						id="toggle-voter"
-						value={voter}
-						onChange={setVoter}
-						label="Voting"
-					/>
-					<CheckboxLabelled
-						id="toggle-add"
-						value={addCards}
-						onChange={setAddCards}
-						label="Add Cards"
-					/>
-				</fieldset>
+				<CheckboxLabelled
+					id="toggle-admin"
+					value={admin}
+					onChange={setAdmin}
+					label="Administrator"
+				/>
+				<CheckboxLabelled
+					id="toggle-voter"
+					value={voter}
+					onChange={setVoter}
+					label="Voting"
+				/>
+				<CheckboxLabelled
+					id="toggle-add"
+					value={addCards}
+					onChange={setAddCards}
+					label="Add Cards"
+				/>
 				<Button
 					disabled={!admin && !voter && !addCards}
 					onClick={generate}
