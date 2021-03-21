@@ -7,6 +7,7 @@ const Stack = styled.div`
 	width: 100%;
 	height: 100%;
 	gap: var(--spacing);
+	justify-content: flex-start;
 `;
 
 export default Stack;

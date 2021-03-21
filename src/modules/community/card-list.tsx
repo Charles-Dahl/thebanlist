@@ -5,6 +5,7 @@ const CardList = styled.div`
 	display: grid;
 	gap: var(--spacing-xsmall);
 	justify-content: center;
+	flex: 1;
 
 	/* Allows columns to grow between 150px and 252px */
 	grid-template-columns: repeat(auto-fill, clamp(150px, 20vw, 252px));
