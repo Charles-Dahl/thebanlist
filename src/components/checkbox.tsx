@@ -1,4 +1,4 @@
-import React, { forwardRef, RefObject } from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 export interface CheckboxProps {
@@ -24,6 +24,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 		};
 		return (
 			<StyledInput
+				ref={ref}
 				checked={value}
 				type="checkbox"
 				onChange={handleChange}

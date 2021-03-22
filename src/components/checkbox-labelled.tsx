@@ -31,7 +31,7 @@ interface CheckboxLabelledProps extends CheckboxProps {
 const CheckboxLabelled = ({ label, id, ...rest }: CheckboxLabelledProps) => {
 	return (
 		<Label htmlFor={id} tabIndex={-1}>
-			<Checkbox id={id} {...rest}></Checkbox>
+			<Checkbox id={id} {...rest} />
 			<Text>{label}</Text>
 		</Label>
 	);

@@ -5,7 +5,10 @@ import { acceptInviteUrl } from "../config/invites";
 import { Community, Permission } from "../types/community";
 import getJwt from "./get-jwt";
 
-export default (permissions: Array<Permission>, community: Community) => {
+const generateInvite = (
+	permissions: Array<Permission>,
+	community: Community
+) => {
 	const token = getJwt(permissions, community);
 	const destinationURL = `${acceptInviteUrl}?token=${token}`;
 
@@ -24,3 +27,5 @@ export default (permissions: Array<Permission>, community: Community) => {
 
 	return callApi(googleDynamicLinkAPI, options);
 };
+
+export default generateInvite;

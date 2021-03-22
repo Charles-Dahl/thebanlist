@@ -5,6 +5,7 @@ import UserProvider from "./modules/authentication/user-provider";
 import NotFoundErrorBoundary from "./library/not-found-error-boundary";
 import Router from "./router";
 import Page from "./components/page";
+import PageErrorBoundary from "./library/page-error-boundary";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -111,10 +112,12 @@ body *:not(script) {
 export default () => {
 	return (
 		<NotFoundErrorBoundary>
-			<GlobalStyles></GlobalStyles>
+			<GlobalStyles />
 			<UserProvider>
 				<Page>
-					<Router></Router>
+					<PageErrorBoundary>
+						<Router />
+					</PageErrorBoundary>
 				</Page>
 			</UserProvider>
 		</NotFoundErrorBoundary>

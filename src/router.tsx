@@ -4,24 +4,31 @@ import { RouteProps } from "./types/routing";
 import routes from "./config/routes";
 import { NotFoundError } from "./library/errors/NotFoundError";
 
-export default () => {
+interface Route {
+	params: any;
+	Component: ComponentType<RouteProps>;
+}
+
+const Router = () => {
 	const { pathname } = window.location;
 
 	if (!pathname) {
 		throw new NotFoundError();
 	}
-	const route = routes.reduce<{
-		params: any;
-		Component: ComponentType<RouteProps>;
-	} | null>((result, [key, Component]) => {
-		const routeRegex = key.match(/(([^:]+)|(:[^:\/]+)\s*)/g);
-		const newRegex = `^(${routeRegex
-			?.map((item) =>
-				item.includes(":")
-					? `(?<${item.split(":")[1]}>[^\/\\s]*)`
-					: item
+	const route = routes.reduce<Route | null>((result, [key, Component]) => {
+		// get the segments of the route using regex
+		const segments = key.match(/(([^:]+)|(:[^:\/]+)\s*)/g);
+
+		// construct a new regex using the segments
+		const newRegex = `^(${segments
+			?.map(
+				(item) =>
+					item.includes(":")
+						? `(?<${item.split(":")[1]}>[^\\/\\s]*)`
+						: item.split("/").join("\\/") //escape slashes in new regex;
 			)
 			.join("")})$`;
+
 		if (!newRegex) {
 			return result;
 		}
@@ -31,7 +38,6 @@ export default () => {
 		}
 		return result;
 	}, null);
-	console.log(route);
 
 	const Component = route?.Component;
 	if (!Component) {
@@ -40,3 +46,5 @@ export default () => {
 
 	return <Component routeParams={route?.params || {}}></Component>;
 };
+
+export default Router;
