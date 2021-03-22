@@ -41,7 +41,8 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 		return (
 			<Stack>
 				<Banner>
-					<Text>Loading</Text>
+					<Title>Community</Title>
+					<Subtitle>Loading</Subtitle>
 				</Banner>
 				<Preloader />
 			</Stack>

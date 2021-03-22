@@ -21,7 +21,7 @@ const Container = styled.div`
 	max-width: 600px;
 	transition: width 350ms ease-in-out, background 350ms ease-in-out;
 	position: relative;
-	font-size: var(--font-size-medium);
+	font-size: var(--font-size-small);
 	border-radius: 3px;
 
 	:focus-within,

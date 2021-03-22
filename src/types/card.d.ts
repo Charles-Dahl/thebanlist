@@ -5,6 +5,7 @@ type Card = {
 	name: string;
 	image_uris: {
 		normal: string;
+		small: string;
 	};
 };
 

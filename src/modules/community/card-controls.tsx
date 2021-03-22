@@ -9,8 +9,6 @@ const CardControls = styled.div`
 	right: 0;
 	bottom: 0;
 	flex-direction: row;
-	background: var(--color-overlay);
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
 `;
 
 export default CardControls;

@@ -21,6 +21,7 @@ const BannedIndicator = styled.strong.attrs<BannedIndicatorProps>(
 	left: 0;
 	right: 0;
 	bottom: 50%;
+	backdrop-filter: blur(1px);
 `;
 
 export default BannedIndicator;

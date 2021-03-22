@@ -13,7 +13,7 @@ const CommunityResolver = ({
 	routeParams: { community_id = "new" },
 }: ViewCommunityProps) => {
 	if (community_id === "new") {
-		return <CreateCommunityForm></CreateCommunityForm>;
+		return <CreateCommunityForm />;
 	}
 
 	return <ViewCommunity communityId={community_id} />;

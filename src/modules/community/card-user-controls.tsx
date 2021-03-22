@@ -33,12 +33,10 @@ const CardUserControls = ({ user, card }: CardUserControlsProps) => {
 			<CardButton
 				onClick={dontBan}
 				icon={votedDontBan ? "thumb_up" : "thumb_up_off_alt"}
-				left
 			/>
 			<CardButton
 				onClick={ban}
 				icon={votedBan ? "thumb_down" : "thumb_down_off_alt"}
-				right
 			/>
 		</CardControls>
 	);

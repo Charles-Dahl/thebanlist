@@ -12,6 +12,7 @@ const Container = styled.div`
 	--border-radius: 10px;
 	position: relative;
 	border-radius: var(--border-radius);
+	overflow: hidden;
 `;
 
 const Card: React.FC<CardProps> = ({ image, name, children }) => {
