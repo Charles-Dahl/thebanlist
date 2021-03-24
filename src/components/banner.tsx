@@ -12,7 +12,6 @@ const Banner = styled.div`
 	background-size: 75px 100%, 75px 100%, calc(100% - 150px) 100%;
 	background-position: 0 0, 100% 0, 75px 0;
 
-	padding: var(--spacing-small);
     width: 100%;
 }
 

@@ -20,13 +20,15 @@ interface ViewCommunityProps {
 }
 
 const Container = styled.div`
-	--font-size-icon: 2rem;
-	--color-icon: var(--color-light-2);
-	--menu-toggle-width: 4rem;
+	--font-size-icon: var(--font-size-medium);
+	--color-icon: var(--color-brand-1);
+	--font-size: var(--font-size-xsmall);
 
+	display: grid;
+	grid-template-columns: repeat(2, min-content);
+	grid-template-rows: repeat(2, min-content);
 	width: 90%;
 	position: relative;
-	padding: 0 var(--menu-toggle-width);
 `;
 
 const CommunityContext = createContext<Community | null>(null);
@@ -57,8 +59,10 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 			<Stack>
 				<Banner>
 					<Container>
-						<Title>{community.name}</Title>
-						<Subtitle>
+						<Title style={{ gridColumn: "1 / -1" }}>
+							{community.name}
+						</Title>
+						<Subtitle style={{ gridColumn: "1 / -1" }}>
 							{community.isPublic ? "Public" : "Private"}
 						</Subtitle>
 						{user && community.admin.includes(user.uid) && (

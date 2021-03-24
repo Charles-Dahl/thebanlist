@@ -43,6 +43,7 @@ body {
     --direction: column;
     --color-background: var(--color-light-2);
     --color-background-nav: var(--color-dark-2);
+    --text-align: center;
 }
 
 body *:not(script) {
@@ -83,7 +84,7 @@ body *:not(script) {
     --color-dark-2: #282828;
     --color-dark-3: #000000;
 
-    --color-brand-1: #C3FEF1;
+    --color-brand-1: #579CB8;
     --color-brand-2: #33EACC;
     --color-brand-3: #0a6e97;
 

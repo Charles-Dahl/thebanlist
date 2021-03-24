@@ -24,7 +24,7 @@ const CreateButton = styled.a`
 	--color-icon: var(--color-light-2);
 	--font-size-icon: 5em;
 	justify-content: center;
-	background: var(--color-brand-3);
+	background: var(--color-brand-1);
 
 	:hover,
 	:focus {
