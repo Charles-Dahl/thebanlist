@@ -8,6 +8,7 @@ import Button from "../../components/button";
 import Text from "../../components/text";
 import Stack from "../../components/stack";
 import { displayNameSchema, emailSchema } from "../../types/formSchema";
+import Title from "../../components/title";
 
 const RegisterUser = () => {
 	const displayNameFieldProps = useField<string>("", displayNameSchema);
@@ -33,7 +34,8 @@ const RegisterUser = () => {
 
 	return (
 		<Form onSubmit={onSubmit}>
-			<Stack>
+			<Stack spacing="large">
+				<Title>Account Registration</Title>
 				<em>
 					Rule Zero uses password free authentication. When you sign
 					in you will receive an email link. Follow the link in the
@@ -42,11 +44,13 @@ const RegisterUser = () => {
 				<Field
 					name="displayName"
 					label="Display Name"
+					placeholder="Nicol Bolas"
 					{...displayNameFieldProps}
 				/>
 				<Field
 					type="email"
 					name="email"
+					placeholder="nicolbolas@amonkhet.com"
 					label="Email Address"
 					{...emailFieldProps}
 				/>

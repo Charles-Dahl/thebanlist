@@ -8,7 +8,6 @@ interface TextProps {
 }
 
 const Text = styled.span<TextProps>`
-	color: var(--color);
 	font-size: var(--font-size);
 	flex-direction: row;
 	position: relative;

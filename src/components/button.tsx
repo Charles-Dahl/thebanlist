@@ -7,11 +7,12 @@ const clickAnimation = keyframes`
 const Button = styled.button`
 	position: relative;
 	padding: var(--spacing-small) var(--spacing-medium);
+	color: var(--color-light-2);
+	--font-size: var(--font-size-small);
 	cursor: pointer;
 	border: 0;
 	background: var(--gradient-primary);
 	border-radius: var(--border-radius-button);
-	width: 100%;
 	justify-content: center;
 	transition: outline-offset 100ms ease-in-out;
 
@@ -23,8 +24,9 @@ const Button = styled.button`
 		outline-offset: 4px;
 	}
 
-	&:disabled {
+	:hover:disabled {
 		cursor: not-allowed;
+		filter: saturate(0.1);
 	}
 
 	:after {

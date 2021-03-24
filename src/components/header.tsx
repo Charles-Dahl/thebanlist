@@ -5,7 +5,7 @@ import Navigation from "./navigation";
 import User from "./user";
 
 const Container = styled.header`
-	--color: var(--color-light-1);
+	color: var(--color-light-2);
 	background: var(--color-background-nav);
 	grid-area: header;
 `;
@@ -19,7 +19,7 @@ const InnerContainer = styled.div`
 	}
 `;
 
-const Header: React.FC = ({ children }) => {
+const Header = () => {
 	return (
 		<Container>
 			<InnerContainer>

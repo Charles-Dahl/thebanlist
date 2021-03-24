@@ -9,32 +9,37 @@ import Stack from "../../components/stack";
 import Link from "../../components/link";
 import Text from "../../components/text";
 import { emailSchema } from "../../types/formSchema";
+import styled from "styled-components";
+import Title from "../../components/title";
 
-export default () => {
+const Container = styled.div`
+	padding: 2em;
+`;
+
+const SignInForm = () => {
 	const emailFieldProps = useField<string>("", emailSchema);
-	const valid = emailFieldProps.errors.length < 1;
+	const { value, errors } = emailFieldProps;
+	const valid = errors.length < 1;
 
 	const onSubmit = () => {
 		if (valid) {
 			auth()
-				.sendSignInLinkToEmail(emailFieldProps.value, {
+				.sendSignInLinkToEmail(value, {
 					url: `http://${window.location.host}/complete-sign-up`,
 					handleCodeInApp: true,
 				})
 				.then(() => {
-					window.localStorage.setItem(
-						"emailForSignIn",
-						emailFieldProps.value
-					);
+					window.localStorage.setItem("emailForSignIn", value);
 				})
 				.catch((error: Error) => alert(error.message));
 		}
 	};
 
 	return (
-		<div>
+		<Container>
 			<Form onSubmit={onSubmit}>
-				<Stack>
+				<Stack spacing="large">
+					<Title>User Sign In</Title>
 					<em>
 						Rule Zero uses password free authentication. When you
 						sign in you will receive an email link. Follow the link
@@ -42,23 +47,26 @@ export default () => {
 					</em>
 					<Field
 						type="email"
+						placeholder="nicolbolas@amonkhet.com"
 						name="email"
 						label="Email Address"
 						{...emailFieldProps}
 					/>
 					<Button
 						disabled={!valid}
-						title={emailFieldProps.errors.find(() => true)}
+						title={errors.find(() => true)}
 						type="submit"
 					>
-						<Text>Sign In</Text>
+						<Text>Submit</Text>
 					</Button>
+					<em>-or-</em>
+					<Link href="/register">
+						<Text>Click Here to Register</Text>
+					</Link>
 				</Stack>
 			</Form>
-			<Text>or</Text>
-			<Link href="/register">
-				<Text>Click Here to Register</Text>
-			</Link>
-		</div>
+		</Container>
 	);
 };
+
+export default SignInForm;

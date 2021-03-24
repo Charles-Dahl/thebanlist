@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-// adds spacing between each child of Stack by adding margin before each child and offsetting the first child by the same amount;
+// Adds spacing between elements
 
-const Stack = styled.div`
+interface StackProps {
+	spacing?: "none" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
+
+const Stack = styled.div<StackProps>`
 	flex-direction: var(--direction);
 	width: 100%;
 	height: 100%;
-	gap: var(--spacing);
+	gap: var(--spacing-${({ spacing }) => spacing || "small"});
 	justify-content: flex-start;
 `;
 
