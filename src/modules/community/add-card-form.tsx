@@ -11,6 +11,7 @@ import ExpandableSearch from "../../components/expandable-search";
 import Grid from "../../components/grid";
 import Resizable from "../../components/resizable";
 import Text from "../../components/text";
+import Preloader from "../../components/preloader";
 
 const Container = styled.div`
 	position: sticky;
@@ -52,11 +53,15 @@ const AddCardForm = () => {
 	const searchTermsFieldProps = useField<string>("", searchTermSchema);
 	const [cardResults, setCardResults] = useState<Array<Card>>([]);
 	const valid = searchTermsFieldProps.errors.length < 1;
+	const [loading, setLoading] = useState(false);
+
 	const handleSubmit = () => {
 		if (valid) {
-			search(searchTermsFieldProps.value).then((results) =>
-				setCardResults(results.data.map(createCard))
-			);
+			setLoading(true);
+			search(searchTermsFieldProps.value).then((results) => {
+				setCardResults(results.data.map(createCard));
+				setLoading(false);
+			});
 		}
 	};
 
@@ -77,11 +82,14 @@ const AddCardForm = () => {
 							</Form>
 						</FormContainer>
 						{hasResults && (
-						<ResultCount>Results: {cardResults.length}</ResultCount>
+							<ResultCount>
+								Results: {cardResults.length}
+							</ResultCount>
 						)}
 					</SearchContainer>
 				}
 			>
+				{loading && <Preloader />}
 				{hasResults && (
 					<Grid>
 						{cardResults.map((card) => (
