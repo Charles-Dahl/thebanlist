@@ -64,11 +64,11 @@ const PublicCommunityList = () => {
 
 	return (
 		<Grid>
-			{user ? (
+			{user && (
 				<CreateButton href="/community/new" title="Create a Community">
 					<Icon name="add" />
 				</CreateButton>
-			) : null}
+			)}
 			{communities.map((community) => (
 				<Community key={community.id} community={community} />
 			))}

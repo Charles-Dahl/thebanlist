@@ -8,15 +8,36 @@ import { Card } from "../../types/card";
 import SearchResultCard from "./search-result-card";
 import styled from "styled-components";
 import ExpandableSearch from "../../components/expandable-search";
-import CardList from "./card-list";
+import Grid from "../../components/grid";
+import Resizable from "../../components/resizable";
+import Text from "../../components/text";
 
 const Container = styled.div`
 	position: sticky;
 	bottom: 0;
 	width: 100%;
 	background: var(--color-light-2);
-	--direction: column;
-	padding: var(--spacing-medium);
+`;
+
+const SearchContainer = styled.div`
+	display: grid;
+	position: relative;
+	grid-template-columns: min-content min-content;
+	width: 100%;
+	place-items: center;
+	padding: 0 1em;
+`;
+
+const ResultCount = styled(Text)`
+	position: absolute;
+	grid-column: 2 / 3;
+	right: 0;
+`;
+
+const FormContainer = styled.div`
+	grid-column: 1 / -1;
+	width: 100%;
+	z-index: 2;
 `;
 
 const createCard = ({
@@ -39,21 +60,36 @@ const AddCardForm = () => {
 		}
 	};
 
+	const hasResults = cardResults.length > 0;
+
 	return (
 		<Container>
-			<Form onSubmit={handleSubmit}>
-				<ExpandableSearch
-					name="search-terms"
-					{...searchTermsFieldProps}
-				/>
-			</Form>
-			{cardResults.length > 0 && (
-				<CardList>
-					{cardResults.map((card) => (
-						<SearchResultCard key={card.id} card={card} />
-					))}
-				</CardList>
-			)}
+			<Resizable
+				allowResize={hasResults}
+				StaticComponent={
+					<SearchContainer>
+						<FormContainer>
+							<Form onSubmit={handleSubmit}>
+								<ExpandableSearch
+									name="search-terms"
+									{...searchTermsFieldProps}
+								/>
+							</Form>
+						</FormContainer>
+						{hasResults && (
+						<ResultCount>Results: {cardResults.length}</ResultCount>
+						)}
+					</SearchContainer>
+				}
+			>
+				{hasResults && (
+					<Grid>
+						{cardResults.map((card) => (
+							<SearchResultCard key={card.id} card={card} />
+						))}
+					</Grid>
+				)}
+			</Resizable>
 		</Container>
 	);
 };

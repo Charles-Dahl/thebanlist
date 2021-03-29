@@ -8,6 +8,7 @@ interface IconProps {
 const StyledIcon = styled.span`
 	color: var(--color-icon);
 	font-size: var(--font-size-icon);
+	user-select: auto;
 `;
 
 const Icon: React.FC<IconProps> = ({ name, ...rest }) => {

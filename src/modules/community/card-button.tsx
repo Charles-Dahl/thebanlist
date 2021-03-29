@@ -12,6 +12,7 @@ interface CardButtonProps {
 const Container = styled(Button)`
 	--color-icon: var(--color-light-3);
 
+	flex: 1;
 	position: relative;
 	background: var(--color-overlay);
 	backdrop-filter: blur(1px);

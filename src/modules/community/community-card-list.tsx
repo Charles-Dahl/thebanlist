@@ -3,7 +3,7 @@ import React from "react";
 import useSubscribeCards from "./hooks/use-subscribe-cards";
 import CommunityCard from "./community-card";
 import Preloader from "../../components/preloader";
-import CardList from "./card-list";
+import Grid from "../../components/grid";
 
 type CommunityCardListProps = {
 	community_id: string;
@@ -17,11 +17,11 @@ const CommunityCardList = ({ community_id }: CommunityCardListProps) => {
 	}
 
 	return (
-		<CardList>
+		<Grid>
 			{cards.map((card) => (
 				<CommunityCard key={card.id} card={card} />
 			))}
-		</CardList>
+		</Grid>
 	);
 };
 

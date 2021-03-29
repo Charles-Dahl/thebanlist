@@ -56,7 +56,7 @@ const ViewCommunity: React.FC<ViewCommunityProps> = ({ communityId }) => {
 
 	return (
 		<CommunityContext.Provider value={community}>
-			<Stack>
+			<Stack spacing="large">
 				<Banner>
 					<Container>
 						<Title style={{ gridColumn: "1 / -1" }}>

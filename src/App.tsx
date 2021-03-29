@@ -68,8 +68,8 @@ body *:not(script) {
 
     --font-size-xsmall: clamp(.5rem, 1vw, 1rem);
     --font-size-small: clamp(.8rem, 1.5vw, 1.5rem);
-	--font-size-medium: clamp(1rem, 2vw, 2rem);
-	--font-size-large: clamp(1.5rem, 3vw, 3rem);
+	--font-size-medium: clamp(1rem, 2vw, 1.5rem);
+	--font-size-large: clamp(1.5rem, 3vw, 2.2rem);
 	--font-size-xlarge: clamp(2rem, 3.5vw, 4rem);
 
     --font-family-primary: 'Raleway', sans-serif;

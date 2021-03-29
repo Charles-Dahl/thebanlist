@@ -4,10 +4,11 @@ import styled from "styled-components";
 
 interface StackProps {
 	spacing?: "none" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+	direction?: "column" | "column-reverse" | "row" | "row-reverse";
 }
 
 const Stack = styled.div<StackProps>`
-	flex-direction: var(--direction);
+	flex-direction: ${({ direction }) => direction || "column"};
 	width: 100%;
 	height: 100%;
 	gap: var(--spacing-${({ spacing }) => spacing || "small"});
