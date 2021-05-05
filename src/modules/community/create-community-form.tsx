@@ -39,6 +39,7 @@ const CreateCommunityForm = () => {
 				<Field
 					name="community-name"
 					label="Community Name"
+					placeholder="CEDH Pubstompers"
 					{...nameFieldProps}
 				/>
 				<FieldCheckbox

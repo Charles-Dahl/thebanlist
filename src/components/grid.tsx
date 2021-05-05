@@ -18,6 +18,10 @@ const Container = styled.ul`
 	grid-template-columns: repeat(auto-fit, clamp(150px, 20vw, 252px));
 `;
 
+const EndText = styled.em`
+	opacity: 0.4;
+`;
+
 const Grid: React.FC = ({ children }) => (
 	<Stack>
 		<Container>
@@ -29,7 +33,7 @@ const Grid: React.FC = ({ children }) => (
 			})}
 		</Container>
 
-		<em>That's all there is... there isn't anymore</em>
+		<EndText>That's all there is... there isn't anymore</EndText>
 	</Stack>
 );
 

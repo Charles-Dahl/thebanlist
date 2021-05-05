@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import styled from "styled-components";
-import clamp from "../library/utility/clamp";
 import Icon from "./icon";
 
 interface DragHandleProps {
@@ -26,6 +25,7 @@ const Container = styled.div`
 
 const InnerContainer = styled.div`
 	overflow-y: auto;
+	max-height: 100vh;
 	transition: height 350ms;
 	width: 100%;
 `;
@@ -33,9 +33,11 @@ const InnerContainer = styled.div`
 const Controls = styled.div`
 	width: 100%;
 	flex-direction: row;
+	position: absolute;
+	bottom: 100%;
 `;
 
-const MinimizeButton = styled.button`
+const MinimalButton = styled.button`
 	border: none;
 	background: none;
 
@@ -56,30 +58,38 @@ const Resizable: React.FC<ResizableProps> = ({
 	allowResize = true,
 }) => {
 	const [dragging, setDragging] = useState(false);
-	const heightRef = useRef(0);
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const stopDragging = () => setDragging(false);
-		setHeight(500);
+		const stopDragging = () => {
+			const container = containerRef.current;
+			if (container) {
+				container.style.transition = "height 350ms";
+			}
+			setDragging(false);
+		};
 
 		window.addEventListener("mouseup", stopDragging);
 		return () => window.removeEventListener("mouseup", stopDragging);
 	}, []);
 
-	const startDragging = () => setDragging(true);
-
-	const setHeight = (value: number) => {
-		if (!containerRef.current) {
-			return;
+	const startDragging = () => {
+		const container = containerRef.current;
+		if (container) {
+			container.style.transition = "none";
 		}
-		heightRef.current = value;
-		containerRef.current.style.maxHeight = `${value}px`;
+		setDragging(true);
 	};
 
 	useEffect(() => {
-		const handleDrag = ({ movementY }: MouseEvent) =>
-			setHeight(clamp(heightRef.current - movementY, 0, 1000));
+		const handleDrag = ({ movementY }: MouseEvent) => {
+			const container = containerRef.current;
+			if (container) {
+				const height = container.getBoundingClientRect().height;
+
+				container.style.height = `${height - movementY}px`;
+			}
+		};
 
 		if (dragging) {
 			window.addEventListener("mousemove", handleDrag);
@@ -88,8 +98,12 @@ const Resizable: React.FC<ResizableProps> = ({
 		return () => window.removeEventListener("mousemove", handleDrag);
 	}, [dragging]);
 
-	const minimize = () => setHeight(0);
-	const maximize = () => setHeight(1000);
+	const minimize = () => {
+		const container = containerRef.current;
+		if (container) {
+			container.style.height = "0";
+		}
+	};
 
 	return (
 		<Container>
@@ -102,12 +116,9 @@ const Resizable: React.FC<ResizableProps> = ({
 					>
 						<Icon name="drag_handle" />
 					</DragHandle>
-					<MinimizeButton title="maximize" onClick={maximize}>
-						<Icon name="check_box_outline_blank" />
-					</MinimizeButton>
-					<MinimizeButton title="minimize" onClick={minimize}>
+					<MinimalButton title="minimize" onClick={minimize}>
 						<Icon name="minimize" />
-					</MinimizeButton>
+					</MinimalButton>
 				</Controls>
 			)}
 			{StaticComponent && StaticComponent}
