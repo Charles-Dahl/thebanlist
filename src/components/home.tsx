@@ -8,7 +8,7 @@ const Container = styled(Link)``;
 
 const Home = () => {
 	return (
-		<Container href="">
+		<Container href="/">
 			<Title>Rule Zero</Title>
 		</Container>
 	);

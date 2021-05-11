@@ -25,6 +25,10 @@ export default (community_id: string): [Array<Card>, boolean] => {
 						ban: result.ban ? result.ban : [],
 						dont_ban: result.dont_ban ? result.dont_ban : [],
 						banned: banCount > dontBanCount,
+						legalities: result.legalities,
+						mana_cost: result.mana_cost,
+						oracle_text: result.oracle_text,
+						type_line: result.type_line,
 					};
 				});
 				setCards(data);

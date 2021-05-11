@@ -47,7 +47,21 @@ const createCard = ({
 	image_uris,
 	ban = [],
 	dont_ban = [],
-}: any): Card => ({ name, id, image_uris, ban, dont_ban });
+	legalities,
+	mana_cost,
+	oracle_text,
+	type_line,
+}: any): Card => ({
+	name,
+	id,
+	image_uris,
+	ban,
+	dont_ban,
+	legalities,
+	mana_cost,
+	oracle_text,
+	type_line,
+});
 
 const AddCardForm = () => {
 	const searchTermsFieldProps = useField<string>("", searchTermSchema);

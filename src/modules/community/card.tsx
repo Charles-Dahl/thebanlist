@@ -9,16 +9,20 @@ interface CardProps {
 }
 
 const Container = styled.div`
-	--border-radius: 10px;
+	border-radius: 10px;
 	position: relative;
-	border-radius: var(--border-radius);
 	overflow: hidden;
+`;
+
+const BorderedImage = styled(ResponsiveImage)`
+	border-radius: inherit;
+	border: 0.5px solid var(--color-dark-1);
 `;
 
 const Card: React.FC<CardProps> = ({ image, name, children }) => {
 	return (
 		<Container>
-			<ResponsiveImage src={image} alt={name} width={252} />
+			<BorderedImage src={image} alt={name} width={252} />
 			{children}
 		</Container>
 	);

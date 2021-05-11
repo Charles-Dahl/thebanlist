@@ -4,7 +4,6 @@ import Stack from "./stack";
 
 const Item = styled.li`
 	border-radius: 0.7em;
-	overflow: hidden;
 `;
 
 const Container = styled.ul`

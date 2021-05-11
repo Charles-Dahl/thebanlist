@@ -9,7 +9,7 @@ const Container = styled.nav``;
 const Navigation = () => {
 	return (
 		<Container>
-			<Link href="/">
+			<Link href="/community">
 				<Text>Communities</Text>
 			</Link>
 		</Container>

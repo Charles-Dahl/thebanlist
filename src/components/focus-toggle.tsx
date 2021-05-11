@@ -25,7 +25,12 @@ const FocusToggle: React.FC = ({ children }) => {
 	};
 
 	return (
-		<Label ref={labelRef} onMouseDown={handleClick} tabIndex={-1}>
+		<Label
+			aria-label="Open Menu"
+			ref={labelRef}
+			onMouseDown={handleClick}
+			tabIndex={-1}
+		>
 			{children}
 		</Label>
 	);

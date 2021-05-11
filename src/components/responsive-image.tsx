@@ -13,8 +13,13 @@ const StyledImage = styled.img`
 	height: auto;
 `;
 
-const ResponsiveImage = ({ src, alt, width }: ResponsiveImageProps) => {
-	return <StyledImage src={src} alt={alt} width={width} />;
+const ResponsiveImage = ({
+	src,
+	alt,
+	width,
+	...rest
+}: ResponsiveImageProps) => {
+	return <StyledImage src={src} alt={alt} width={width} {...rest} />;
 };
 
 export default ResponsiveImage;

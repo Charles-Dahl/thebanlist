@@ -7,6 +7,7 @@ import Icon, { iconNames } from "../../components/icon";
 interface CardButtonProps {
 	icon: keyof typeof iconNames;
 	onClick?: () => void;
+	title?: string;
 }
 
 const Container = styled(Button)`
